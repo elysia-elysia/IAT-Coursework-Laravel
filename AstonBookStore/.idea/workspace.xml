@@ -20,10 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f4baa15-d634-4539-8b7d-ad0dfaf3ed2c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/BookStoreController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/all-books.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/book.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_16_161545_create_books_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_16_161545_create_books_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +174,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1592323877876</updated>
-      <workItem from="1592323886924" duration="6541000" />
+      <workItem from="1592323886924" duration="10473000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1592324933526</created>
@@ -216,5 +218,15 @@
     <MESSAGE value="commit" />
     <MESSAGE value="use local database" />
     <option name="LAST_COMMIT_MESSAGE" value="use local database" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="795" y="263" key="NewPhpFileDialog" timestamp="1592418993612">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="795" y="263" key="NewPhpFileDialog/0.0.1280.680@0.0.1280.680" timestamp="1592418993612" />
+    <state x="29" y="0" width="587" height="680" key="find.popup" timestamp="1592418463315">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="29" y="0" width="587" height="680" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1592418463315" />
   </component>
 </project>
