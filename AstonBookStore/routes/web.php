@@ -16,5 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('all-books', 'BookStoreController@showAllBooks');
-Route::get('book/{id}', 'BookStoreController@showBookByID');
+Route::resource('books','BookController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
