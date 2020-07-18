@@ -21,3 +21,4 @@ Route::resource('books','BookController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/add-to-basket/{id}', 'BookController@addToBasket');

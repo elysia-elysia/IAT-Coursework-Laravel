@@ -33,16 +33,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('books') }}">Books </a>
+                        </li>
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('books') }}">Books </a>
-                            </li>
-                        @else
 
+                        @else
+                        @endguest
+                            @if(Auth::check() && (Auth::user()->role == 1))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('books/create') }}">Create a Book</a>
                             </li>
-                        @endguest
+                                @endif
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->

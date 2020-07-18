@@ -17,6 +17,7 @@ class BookController extends Controller
         return view('books.index', compact('books'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -105,6 +106,14 @@ class BookController extends Controller
     {
         $book = Book::find($id);
         return view('books.edit',compact('book'));
+    }
+
+    public function addToBasket($id)
+    {
+        $book = Book::find($id);
+        //TODO: Add to basket function
+       // return redirect('books')->with('success','The book has been added to your basket');
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 
     /**

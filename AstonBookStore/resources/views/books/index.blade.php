@@ -31,8 +31,10 @@
                                     <td>{{$book['authorlastname']}}</td>
                                     <td>{{$book['publishyear']}}</td>
                                     <td>{{$book['stock']}}</td>
+
                                     <td><a href="{{action('BookController@show', $book['id'])}}" class="btn
 btn- primary">Details</a></td>
+                                    @if(Auth::check() && (Auth::user()->role == 1))
                                     <td><a href="{{action('BookController@edit', $book['id'])}}" class="btn
 btn- warning">Edit</a></td>
                                     <td>
@@ -42,6 +44,10 @@ btn- warning">Edit</a></td>
                                             <button class="btn btn-danger" type="submit"> Delete</button>
                                         </form>
                                     </td>
+                                    @else
+                                        <td><a href="{{action('BookController@addToBasket', $book['id'])}}" class="btn
+btn- primary">Add To Basket</a></td>
+                                        @endif
                                 </tr>
                             @endforeach
                             </tbody>

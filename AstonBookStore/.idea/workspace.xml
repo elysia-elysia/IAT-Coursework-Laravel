@@ -20,9 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f4baa15-d634-4539-8b7d-ad0dfaf3ed2c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/orders.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/stockroom.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/basket.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/checkout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BookController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_16_161545_create_books_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/2020_06_16_161545_create_books_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/books/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/books/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,8 +166,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\IAT-Coursework-Laravel\AstonBookStore\resources\views\books" />
+      <recent name="C:\xampp\htdocs\IAT-Coursework-Laravel\AstonBookStore\database\migrations" />
       <recent name="C:\xampp\htdocs\IAT-Coursework-Laravel\AstonBookStore\database" />
+      <recent name="C:\xampp\htdocs\IAT-Coursework-Laravel\AstonBookStore\resources\views\books" />
     </key>
   </component>
   <component name="RunManager">
@@ -177,7 +188,8 @@
       <option name="presentableId" value="Default" />
       <updated>1592323877876</updated>
       <workItem from="1592323886924" duration="10473000" />
-      <workItem from="1594981597491" duration="16380000" />
+      <workItem from="1594981597491" duration="16456000" />
+      <workItem from="1595080894941" duration="6577000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1592324933526</created>
@@ -225,11 +237,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="use local database" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="795" y="263" key="NewPhpFileDialog" timestamp="1594984324331">
+    <state x="795" y="263" key="NewPhpFileDialog" timestamp="1595086974271">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="795" y="263" key="NewPhpFileDialog/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1594984324331" />
-    <state x="795" y="263" key="NewPhpFileDialog/0.0.1280.680@0.0.1280.680" timestamp="1592418993612" />
+    <state x="795" y="263" key="NewPhpFileDialog/0.0.1280.680@0.0.1280.680" timestamp="1595086974271" />
     <state x="210" y="89" width="994" height="669" key="dock-window-1" timestamp="1594984346653">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -238,9 +250,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="29" y="0" width="587" height="680" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1592418463315" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1594998340858">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1595083404121">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1594998340858" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1595083404121" />
   </component>
 </project>
