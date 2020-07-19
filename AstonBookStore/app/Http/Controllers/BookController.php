@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
+
 class BookController extends Controller
 {
+    use AuthenticatesUsers;
     /**
      * Display a listing of the resource.
      *

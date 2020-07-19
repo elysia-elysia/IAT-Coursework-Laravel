@@ -57,7 +57,8 @@
                                                     </svg></button>
                                             </form>
                                         </td>
-                                    @else
+                                    @endif
+                                    @if(Auth::check() && (Auth::user()->role == 0))
                                         @if($book['stock']<= 0)
                                             <td><a href="{{action('BookController@addToBasket', $book['id'])}}" class="btn btn-secondary disabled">Out Of Stock</a></td>
                                         @else

@@ -21,7 +21,7 @@
                         <a href="{{ url('books/create') }}" class="btn btn-primary btn-lg active btn-block" role="button" aria-pressed="true">Add a Book</a>
                         <a href="{{ url('books') }}" class="btn btn-primary btn-lg active btn-block" role="button" aria-pressed="true">View All Books</a>
                         <a href="{{ url('admin/stockroom') }}" class="btn btn-primary btn-lg active btn-block" role="button" aria-pressed="true">Stock Room</a>
-                        <a href="{{ url('admin/orders') }}" class="btn btn-primary btn-lg active btn-block" role="button" aria-pressed="true">View Orders</a>
+                        <a href="{{ url('orders') }}" class="btn btn-primary btn-lg active btn-block" role="button" aria-pressed="true">View Orders</a>
                     </div>
                 </div>
             </div>

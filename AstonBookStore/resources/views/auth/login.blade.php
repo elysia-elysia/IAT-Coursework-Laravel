@@ -6,6 +6,18 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
+                <!-- display the errors -->
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul> @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li> @endforeach
+                        </ul>
+                    </div><br /> @endif
+            <!-- display the success status -->
+                @if (\Session::has('success'))
+                    <div class="alert alert-success">
+                        <p>{{ \Session::get('success') }}</p>
+                    </div><br /> @endif
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

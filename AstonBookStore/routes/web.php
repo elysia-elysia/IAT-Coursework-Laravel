@@ -21,8 +21,15 @@ Route::resource('books','BookController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/add-to-basket/{id}', 'BookController@addToBasket');
-Route::view('/admin', 'admin/admin');
-Route::view('/admin/stockroom', 'admin/stockroom');
-Route::view('/admin/orders', 'admin/orders');
-Route::view('/basket', 'basket');
+
+//Users cannot get to these pages until they are logged in
+//It will redirect non-auth users to the login page if they try to access these pages
+Route::group(['middleware' => ['auth']], function() {
+    Route::view('/admin', 'admin/admin');
+    Route::view('/admin/stockroom', 'admin/stockroom');
+    Route::get('orders',
+        'OrderController@displayOrders')->name('display_orders');
+    Route::view('/basket', 'basket');
+    Route::get('/add-to-basket/{id}', 'BookController@addToBasket');
+
+});
