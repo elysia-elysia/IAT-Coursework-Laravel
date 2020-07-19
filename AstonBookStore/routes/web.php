@@ -22,3 +22,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/add-to-basket/{id}', 'BookController@addToBasket');
+Route::view('/admin', 'admin/admin');
+Route::view('/admin/stockroom', 'admin/stockroom');
+Route::view('/admin/orders', 'admin/orders');
+Route::view('/basket', 'basket');

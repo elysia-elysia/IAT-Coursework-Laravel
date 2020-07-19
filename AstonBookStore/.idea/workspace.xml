@@ -20,17 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f4baa15-d634-4539-8b7d-ad0dfaf3ed2c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/orders.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/stockroom.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/basket.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/checkout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BookController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_16_161545_create_books_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/2020_06_16_161545_create_books_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/books/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/books/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/books/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/books/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -189,7 +182,8 @@
       <updated>1592323877876</updated>
       <workItem from="1592323886924" duration="10473000" />
       <workItem from="1594981597491" duration="16456000" />
-      <workItem from="1595080894941" duration="6577000" />
+      <workItem from="1595080894941" duration="6871000" />
+      <workItem from="1595148003861" duration="3616000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1592324933526</created>
@@ -237,11 +231,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="use local database" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="795" y="263" key="NewPhpFileDialog" timestamp="1595086974271">
+    <state x="795" y="263" key="NewPhpFileDialog" timestamp="1595148277353">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="795" y="263" key="NewPhpFileDialog/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1594984324331" />
-    <state x="795" y="263" key="NewPhpFileDialog/0.0.1280.680@0.0.1280.680" timestamp="1595086974271" />
+    <state x="795" y="263" key="NewPhpFileDialog/0.0.1280.680@0.0.1280.680" timestamp="1595148277353" />
     <state x="210" y="89" width="994" height="669" key="dock-window-1" timestamp="1594984346653">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
