@@ -37,7 +37,7 @@
                                 <tr>
                                     <td>{{$book['ISBN_no']}}</td>
                                     <td>{{$book['title']}}</td>
-                                    <td>{{$book['price']}}</td>
+                                    <td>£{{$book['price']}}</td>
                                     <td>{{$book['category']}}</td>
                                     <td>{{$book['authorfirstname']}}</td>
                                     <td>{{$book['authorlastname']}}</td>

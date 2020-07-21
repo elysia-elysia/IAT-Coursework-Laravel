@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Book;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Session;
+use App\Basket;
 
 
 class BookController extends Controller
@@ -19,6 +21,11 @@ class BookController extends Controller
     {
         $books = Book::all()->toArray();
         return view('books.index', compact('books'));
+    }
+    public function stockroom()
+    {
+        $books = Book::all()->toArray();
+        return view('/admin/stockroom', compact('books'));
     }
 
 
@@ -112,12 +119,25 @@ class BookController extends Controller
         return view('books.edit',compact('book'));
     }
 
-    public function addToBasket($id)
+    public function addToBasket(Request $request, $id)
     {
         $book = Book::find($id);
-        //TODO: Add to basket function
-       // return redirect('books')->with('success','The book has been added to your basket');
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        $oldBasket = Session::has('basket') ? Session::get('basket'): null;
+        $basket = new Basket($oldBasket);
+        $basket->add($book, $book->id);
+
+        $request->session()->put('basket', $basket);
+       // dd($request->session()->get('basket'));
+        return redirect()->route('books.index')->with('success', 'Product added to your basket successfully!');
+    }
+
+    public function getBasket(){
+        if(!Session::has('basket')){
+            return  view('/basket');
+        }
+        $oldBasket = Session::get('basket');
+        $basket = new Basket($oldBasket);
+        return view('/basket', ['books' => $basket-> items, 'totalPrice'=> $basket->totalPrice]);
     }
 
     /**
@@ -172,6 +192,20 @@ class BookController extends Controller
         $book->image = $fileNameToStore;
         $book->save();
         return redirect('books')->with('success','The book has been updated');
+    }
+
+    public function updateStock(Request $request, $id)
+    {
+        $book = Book::find($id);
+        // form validation
+        $this->validate(request(), [
+            'stock' => 'required|numeric'
+        ]);
+        $book->stock = $request->input('stock');
+        $book->updated_at = now();
+
+        $book->save();
+        return redirect('/admin/stockroom')->with('success','The book has been updated');
     }
 
     /**

@@ -21,7 +21,7 @@
                         <table class="table table-striped" border="1" >
                             <tr> <th> <b>ISBN Number </th> <td> {{$book['ISBN_no']}}</td></tr>
                             <tr> <th>Title </th> <td>{{$book->title}}</td></tr>
-                            <tr> <th>Price </th> <td>{{$book->price}}</td></tr>
+                            <tr> <th>Price </th> <td>£{{$book->price}}</td></tr>
                             <tr> <th>Category </th> <td>{{$book->category}}</td></tr>
                             <tr> <th>Author First Name </th> <td>{{$book->authorfirstname}}</td></tr>
                             <tr> <th>Author Last Name </th> <td>{{$book->authorlastname}}</td></tr>
@@ -34,7 +34,7 @@
                         <table><tr>
                                 <td><a href="{{route('books.index')}}" class="btn btn-primary" role="button">Back to the list</a></td>
                                 @if(Auth::check() && (Auth::user()->role == 1))
-<td><a href="{{action('BookController@edit', $book['id'])}}" class="btn btn- warning">Edit</a></td>
+<td><a href="{{action('BookController@edit', $book['id'])}}" class="btn btn-warning">Edit</a></td>
                                 <td><form action="{{action('BookController@destroy', $book['id'])}}"
                                           method="post"> @csrf
                                         <input name="_method" type="hidden" value="DELETE">
