@@ -13,74 +13,73 @@
                             <ul> @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li> @endforeach
                             </ul>
-                        </div><br /> @endif
+                        </div><br/> @endif
                 <!-- display the success status -->
                     @if (\Session::has('success'))
                         <div class="alert alert-success">
                             <p>{{ \Session::get('success') }}</p>
-                        </div><br /> @endif
+                        </div><br/> @endif
                 <!-- define the form -->
                     <div class="card-body">
-                        <form class="form-horizontal" method="POST"
+                        <form method="POST"
                               action="{{url('books') }}" enctype="multipart/form-data">
                             @csrf
-                            <div class="col-md-8">
-                                <label >Title</label>
-                                <input type="text" name="title"
-                                       placeholder="Book Title" />
+                            <div class="col-md-8 form-group">
+                                <label for="titleInput">Title</label>
+                                <input type="text" name="title" id="titleInput" class="form-control"
+                                       placeholder="Book Title" required/>
                             </div>
-                            <div class="col-md-8">
-                                <label >ISBN Number</label>
-                                <input type="text" name="ISBN_no"
-                                       placeholder="ISBN Number" />
+                            <div class="col-md-8 form-group">
+                                <label for="isbnInput">ISBN Number</label>
+                                <input type="text" name="ISBN_no" id="isbnInput" placeholder="ISBN Number" required
+                                       class="form-control" pattern="[0-9]{13}"/>
                             </div>
-                            <div class="col-md-8">
-                                <label>Book Category</label>
-                                <select  multiple class="form-control" name="category[]" >
+                            <div class="col-md-8 form-group">
+                                <label for="categoryInput">Book Category</label>
+                                <select multiple class="form-control" name="category[]" required id="categoryInput"
+                                        class="form-control">
                                     <option value="Computing">Computing</option>
                                     <option value="Business">Business</option>
                                     <option value="Languages">Languages</option>
                                 </select>
                             </div>
+                            <div class="col-md-4 form-group">
+                                <label>Price</label>
+                                <input type="text" name="price" placeholder="Price" required pattern="(\d+\.\d{1,2})"
+                                       class="form-control"/>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label>Author First Name</label>
+                                <input type="text" name="authorfirstname" placeholder="Author First Name" required
+                                       class="form-control"/>
+                            </div>
 
-                            <div class="col-md-8">
-                                <label >Price</label>
-                                <input type="text" name="price"
-                                       placeholder="Price" />
+                            <div class="col-md-8 form-group">
+                                <label>Author Last Name</label>
+                                <input type="text" name="authorlastname" placeholder="Author Last Name" required
+                                       class="form-control"/>
                             </div>
-                            <div class="col-md-8">
-                                <label >Author First Name</label>
-                                <input type="text" name="authorfirstname"
-                                       placeholder="Author First Name" />
+                            <div class="col-md-8 form-group">
+                                <label>Publishing Year</label>
+                                <input type="integer" name="publishyear" placeholder="Publishing Year" required
+                                       class="form-control"/>
                             </div>
-                            <div class="col-md-8">
-                                <label >Author Last Name</label>
-                                <input type="text" name="authorlastname"
-                                       placeholder="Author Last Name" />
+                            <div class="col-md-8 form-group">
+                                <label>Description</label>
+                                <textarea rows="4" cols="50" name="description" maxlength="256" class="form-control"> Notes about the book </textarea>
                             </div>
-                            <div class="col-md-8">
-                                <label >Publishing Year</label>
-                                <input type="integer" name="publishyear"
-                                       placeholder="Publishing Year" />
-                            </div>
-                            <div class="col-md-8">
-                                <label >Description</label>
-                                <textarea rows="4" cols="50" name="description"> Notes
-about the book </textarea>
-                            </div>
-                            <div class="col-md-8">
-                                <label >Stock</label>
+                            <div class="col-md-8 form-group">
+                                <label>Stock</label>
                                 <input type="integer" name="stock"
-                                       placeholder="Stock" />
+                                       placeholder="Stock" required class="form-control"/>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-8 form-group">
                                 <label>Image</label>
-                                <input type="file" name="image"
-                                       placeholder="Image file" />
+                                <input type="file" name="image" placeholder="Image file" class="form-control"/>
                             </div>
                             <div class="col-md-6 col-md-offset-4">
-                                <input type="submit" class="btn btn-primary" />
-                                <input type="reset" class="btn btn-primary" />
+                                <input type="submit" class="btn btn-primary"/>
+                                <input type="reset" class="btn btn-warning"/>
                             </div>
                         </form>
                     </div>

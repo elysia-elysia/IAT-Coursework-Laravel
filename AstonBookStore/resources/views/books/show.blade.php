@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8 ">
                 <div class="card">
-                    <div class="card-header">Display all books</div>
+                    <div class="card-header font-weight-bold">{{$book->title}}</div>
                     <!-- display the errors -->
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -28,20 +28,27 @@
                             <tr> <th>Publishing Year </th> <td>{{$book->publishyear}}</td></tr>
                             <tr> <th>Description </th> <td style="max-width:150px;" >{{$book->description}}</td></tr>
                             <tr> <th>No. in Stock </th> <td>{{$book->stock}}</td></tr>
+                            @if($book->image != "noimage.jpg")
                             <tr> <td colspan='2' ><img style="width:100%;height:100%"
                                                        src="{{ asset('storage/images/'.$book->image)}}"></td></tr>
+                            @else
+                                <tr>  <td class="text-center" colspan='2'>No Image Available</td></tr>
+                            @endif
+
                         </table>
-                        <table><tr>
+                        <table>
+                            <tr>
                                 <td><a href="{{route('books.index')}}" class="btn btn-primary" role="button">Back to the list</a></td>
                                 @if(Auth::check() && (Auth::user()->role == 1))
-<td><a href="{{action('BookController@edit', $book['id'])}}" class="btn btn-warning">Edit</a></td>
-                                <td><form action="{{action('BookController@destroy', $book['id'])}}"
-                                          method="post"> @csrf
+                                    <td><a href="{{action('BookController@edit', $book['id'])}}" class="btn btn-warning">Edit</a></td>
+                                    <td><form action="{{action('BookController@destroy', $book['id'])}}" method="post"> @csrf
                                         <input name="_method" type="hidden" value="DELETE">
-                                        <button class="btn btn-danger" type="submit"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <button class="btn btn-danger" type="submit">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                                                 <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                                            </svg></button>
+                                            </svg>
+                                        </button>
                                     </form></td>
                                 @endif
                                 @if(Auth::check() && (Auth::user()->role == 0))
@@ -50,9 +57,9 @@
                                     @else
                                         <td><a href="{{action('BookController@addToBasket', $book['id'])}}" class="btn btn-primary">Add To Basket</a></td>
                                     @endif
-
                                 @endif
-                            </tr></table>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>

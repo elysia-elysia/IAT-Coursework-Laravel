@@ -52,24 +52,25 @@ class BookController extends Controller
             'stock' => 'required|numeric',
             'price' => 'required|numeric',
             'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:500',
+            'description' => 'max:256'
         ]);
-//Handles the uploading of the image
+        //Handles the uploading of the image
         if ($request->hasFile('image')){
-//Gets the filename with the extension
+            //Gets the filename with the extension
             $fileNameWithExt = $request->file('image')->getClientOriginalName();
-//just gets the filename
+            //just gets the filename
             $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-//Just gets the extension
+            //Just gets the extension
             $extension = $request->file('image')->getClientOriginalExtension();
-//Gets the filename to store
+            //Gets the filename to store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
-//Uploads the image
+            //Uploads the image
             $path =$request->file('image')->storeAs('public/images', $fileNameToStore);
         }
         else {
             $fileNameToStore = 'noimage.jpg';
         }
-// create a book object and set its values from the input
+        // create a book object and set its values from the input
         $book = new book;
         $book->title = $request->input('title');
         $book->ISBN_no = $request->input('ISBN_no');
@@ -83,9 +84,9 @@ class BookController extends Controller
         $book->description = $request->input('description');
         $book->created_at = now();
         $book->image = $fileNameToStore;
-// save the book object
+        // save the book object
         $book->save();
-// generate a redirect HTTP response with a success message
+        // generate a redirect HTTP response with a success message
         return back()->with('success', 'The book has been created');
     }
 
@@ -134,6 +135,7 @@ class BookController extends Controller
             'stock' => 'required|numeric',
             'price' => 'required|numeric',
             'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:500',
+            'description' => 'max:256'
         ]);
         $book->title = $request->input('title');
         $book->ISBN_no = $request->input('ISBN_no');
@@ -147,17 +149,17 @@ class BookController extends Controller
         $book->description = $request->input('description');
         $book->updated_at = now();
 
-//Handles the uploading of the image
+        //Handles the uploading of the image
         if ($request->hasFile('image')){
-//Gets the filename with the extension
+            //Gets the filename with the extension
             $fileNameWithExt = $request->file('image')->getClientOriginalName();
-//just gets the filename
+            //just gets the filename
             $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-//Just gets the extension
+            //Just gets the extension
             $extension = $request->file('image')->getClientOriginalExtension();
-//Gets the filename to store
+            //Gets the filename to store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
-//Uploads the image
+            //Uploads the image
             $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
         } else {
             $fileNameToStore = 'noimage.jpg';

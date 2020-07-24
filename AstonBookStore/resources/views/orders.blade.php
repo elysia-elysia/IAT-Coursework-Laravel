@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8 ">
                 <div class="card">
-                    <div class="card-header">Display all Orders</div>
+                    <div class="card-header">Previous Orders</div>
                     <!-- display the errors -->
                     @if ($errors->any())
                         <div class="alert alert-danger">

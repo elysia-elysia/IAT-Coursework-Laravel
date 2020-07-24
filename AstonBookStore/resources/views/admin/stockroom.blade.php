@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+{{--    <div class="container">--}}
         <div class="row justify-content-center">
             <div class="col-md-12 ">
                 <div class="card">
-                    <div class="card-header">Display all Books</div>
+                    <div class="card-header">Stock Room</div>
                     <!-- display the errors -->
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -23,10 +23,8 @@
                             <tr>
                                 <th>ISBN Number</th>
                                 <th>Title</th>
-                                <th>Price</th>
                                 <th>Category</th>
-                                <th>Author First Name</th>
-                                <th>Author Last Name</th>
+                                <th>Author</th>
                                 <th>Publishing Year</th>
                                 <th colspan="3">Stock</th>
                             </tr>
@@ -36,10 +34,8 @@
                                 <tr>
                                     <td>{{$book['ISBN_no']}}</td>
                                     <td>{{$book['title']}}</td>
-                                    <td>{{$book['price']}}</td>
                                     <td>{{$book['category']}}</td>
-                                    <td>{{$book['authorfirstname']}}</td>
-                                    <td>{{$book['authorlastname']}}</td>
+                                    <td>{{$book['authorfirstname']}} {{$book['authorlastname']}}</td>
                                     <td>{{$book['publishyear']}}</td>
 
                                     @if(Auth::check() && (Auth::user()->role == 1))
@@ -48,7 +44,7 @@
                                                   method="post"> @csrf
                                                 <div class="row">
                                                     <div class="col">
-                                                        <input class="form-control" type="number" value="{{$book['stock']}}" name="stock">
+                                                        <input class="form-control" type="number" value="{{$book['stock']}}" name="stock" min="0">
                                                     </div>
                                                     <div class="col">
                                                         <button class="btn btn-danger" type="submit">Update </button>
@@ -66,5 +62,5 @@
                 </div>
             </div>
         </div>
-    </div>
+{{--    </div>--}}
 @endsection

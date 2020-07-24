@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+{{--    <div class="container">--}}
         <div class="row justify-content-center">
             <div class="col-md-12 ">
                 <div class="card">
-                    <div class="card-header">Display all Books</div>
+                    <div class="card-header">All Books</div>
                     <!-- display the errors -->
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -74,5 +74,5 @@
                 </div>
             </div>
         </div>
-    </div>
+{{--    </div>--}}
 @endsection
