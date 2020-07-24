@@ -248,4 +248,20 @@ class BookController extends Controller
         $request->session()->put('basket', $basket);
         return back()->with('success', 'Book quantity changed successfully!');
     }
+
+    //Checkout Functions
+    public function getCheckout()
+    {
+        if(!Session::has('basket')){
+            return  view('/basket');
+        }
+        $oldBasket = Session::get('basket');
+        $basket = new Basket($oldBasket);
+        $total = $basket->totalPrice;
+        return view('checkout', ['totalPrice'=> $total]);
+    }
+
+    public function postCheckout(){
+
+    }
 }

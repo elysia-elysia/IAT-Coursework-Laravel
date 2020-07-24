@@ -33,5 +33,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/add-to-basket/{book}', 'BookController@addToBasket');
     Route::delete('/remove-from-basket{book}', 'BookController@removeFromBasket');
     Route::post('/basket/{book}', 'BookController@updateBasketQuantity');
+    Route::get('/checkout', 'BookController@getCheckout')->name('checkout');
+    Route::post('/checkout', 'BookController@postCheckout')->name('checkout');
     Route::post('/admin/stockroom/{book}', 'BookController@updateStock');
 });

@@ -87,19 +87,6 @@ $book['id']) }} " enctype="multipart/form-data" >
                                 <input type="submit" class="btn btn-primary" />
                                 <input type="reset" class="btn btn-primary" />
                             </div>
-
-
-{{--                            -------------------------------}}
-{{--                            <div class="col-md-8">--}}
-{{--                                <label>book Type</label>--}}
-{{--                                <select name="category" value="{{ $book->category }}">--}}
-{{--                                    <option value="car">Car</option>--}}
-{{--                                    <option value="truck">Truck</option>--}}
-{{--                                </select>--}}
-{{--                            </div>--}}
-
-
-
                         </form>
                     </div>
                 </div>
