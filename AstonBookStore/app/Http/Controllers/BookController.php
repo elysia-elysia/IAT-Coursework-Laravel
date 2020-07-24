@@ -17,18 +17,12 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //Book Functions
     public function index()
     {
         $books = Book::all()->toArray();
         return view('books.index', compact('books'));
     }
-    public function stockroom()
-    {
-        $books = Book::all()->toArray();
-        return view('/admin/stockroom', compact('books'));
-    }
-
-
     /**
      * Show the form for creating a new resource.
      *
@@ -119,27 +113,6 @@ class BookController extends Controller
         return view('books.edit',compact('book'));
     }
 
-    public function addToBasket(Request $request, $id)
-    {
-        $book = Book::find($id);
-        $oldBasket = Session::has('basket') ? Session::get('basket'): null;
-        $basket = new Basket($oldBasket);
-        $basket->add($book, $book->id);
-
-        $request->session()->put('basket', $basket);
-       // dd($request->session()->get('basket'));
-        return redirect()->route('books.index')->with('success', 'Product added to your basket successfully!');
-    }
-
-    public function getBasket(){
-        if(!Session::has('basket')){
-            return  view('/basket');
-        }
-        $oldBasket = Session::get('basket');
-        $basket = new Basket($oldBasket);
-        return view('/basket', ['books' => $basket-> items, 'totalPrice'=> $basket->totalPrice]);
-    }
-
     /**
      * Update the specified resource in storage.
      *
@@ -194,6 +167,27 @@ class BookController extends Controller
         return redirect('books')->with('success','The book has been updated');
     }
 
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $book = Book::find($id);
+        $book->delete();
+        return redirect('books')->with('success','The book has been deleted');
+    }
+
+    //Stock Room Functions
+    public function stockroom()
+    {
+        $books = Book::all()->toArray();
+        return view('/admin/stockroom', compact('books'));
+    }
+
     public function updateStock(Request $request, $id)
     {
         $book = Book::find($id);
@@ -208,16 +202,48 @@ class BookController extends Controller
         return redirect('/admin/stockroom')->with('success','The book has been updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    //Basket Functions
+    public function getBasket(){
+        if(!Session::has('basket')){
+            return  view('/basket');
+        }
+        $oldBasket = Session::get('basket');
+        $basket = new Basket($oldBasket);
+        return view('/basket', ['books' => $basket-> items, 'totalPrice'=> $basket->totalPrice,'totalQuantity'=> $basket->totalQuantity]);
+    }
+
+    public function addToBasket(Request $request, $id)
     {
         $book = Book::find($id);
-        $book->delete();
-        return redirect('books')->with('success','The book has been deleted');
+        $oldBasket = Session::has('basket') ? Session::get('basket'): null;
+        $basket = new Basket($oldBasket);
+        $basket->add($book, $book->id);
+
+        $request->session()->put('basket', $basket);
+        return redirect()->route('books.index')->with('success', 'Book added to your basket successfully!');
+    }
+
+    public function removeFromBasket($id) {
+        $oldBasket = Session::has('basket') ? Session::get('basket') : null;
+        $basket = new basket($oldBasket);
+        $basket->removeItem($id);
+
+        if (count($basket->items) > 0) {
+            Session::put('basket', $basket);
+        } else {
+            Session::forget('basket');
+        }
+
+        return back()->with('success', 'Book removed from your basket successfully!');
+    }
+
+    public function  updateBasketQuantity(Request $request, $id){
+        $book = Book::find($id);
+        $oldBasket = Session::has('basket') ? Session::get('basket'): null;
+        $basket = new Basket($oldBasket);
+        $basket->update($request,$book, $book->id);
+
+        $request->session()->put('basket', $basket);
+        return back()->with('success', 'Book quantity changed successfully!');
     }
 }
