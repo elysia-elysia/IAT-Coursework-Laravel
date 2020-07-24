@@ -24,59 +24,63 @@
 $book['id']) }} " enctype="multipart/form-data" >
                             @method('PATCH')
                             @csrf
-                            <div class="col-md-8">
+                            <div class="col-md-8 form-group">
                                 <label >Title</label>
                                 <input type="text" name="title"
-                                       value="{{$book->title}}" />
+                                       value="{{$book->title}}" required  class="form-control"/>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-8 form-group">
                                 <label >ISBN Number</label>
                                 <input type="text" name="ISBN_no"
-                                       value="{{$book->ISBN_no}}"/>
+                                       value="{{$book->ISBN_no}}" required
+                                       class="form-control" pattern="[0-9]{13}"/>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-8 form-group">
                                 <label>Book Category</label>
-                                <select  multiple class="form-control" name="category[]" >
-                                    <option value="Computing">Computing</option>
-                                    <option value="Business">Business</option>
-                                    <option value="Languages">Languages</option>
+                                <select  multiple class="form-control" name="category[]" required >
+                                    <option value="Computing" {{ str_contains( $book->category,'Computing') ? 'selected' : '' }}>Computing</option>
+                                    <option value="Business" {{ str_contains($book->category,'Business') ? 'selected' : '' }}>Business</option>
+                                    <option value="Languages" {{ str_contains($book->category,'Languages') ? 'selected' : '' }}>Languages</option>
                                 </select>
                             </div>
 
-                            <div class="col-md-8">
+                            <div class="col-md-8 form-group">
                                 <label >Price</label>
                                 <input type="text" name="price"
-                                       value="{{$book->price}}" />
+                                       value="{{$book->price}}"  required pattern="(\d+\.\d{1,2})"
+                                       class="form-control"/>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-8 form-group">
                                 <label >Author First Name</label>
                                 <input type="text" name="authorfirstname"
-                                       value="{{$book->authorfirstname}}" />
+                                       value="{{$book->authorfirstname}}" required
+                                       class="form-control"/>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-8 form-group">
                                 <label >Author Last Name</label>
                                 <input type="text" name="authorlastname"
-                                       value="{{$book->authorlastname}}" />
+                                       value="{{$book->authorlastname}}" required
+                                       class="form-control"/>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-8 form-group">
                                 <label >Publishing Year</label>
                                 <input type="integer" name="publishyear"
-                                       value="{{$book->publishyear}}" />
+                                       value="{{$book->publishyear}}" required
+                                       class="form-control"/>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-8 form-group">
                                 <label >Description</label>
-                                <textarea rows="4" cols="50" name="description" > {{$book->description}}
-</textarea>
+                                <textarea rows="4" cols="50" name="description" maxlength="256" class="form-control"> {{$book->description}}</textarea>
                             </div>
 
-                            <div class="col-md-8">
+                            <div class="col-md-8 form-group">
                                 <label >Stock</label>
                                 <input type="integer" name="stock"
-                                       value="{{$book->stock}}" />
+                                       value="{{$book->stock}}" required class="form-control"/>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-8 form-group">
                                 <label>Image</label>
-                                <input type="file" name="image"/>
+                                <input type="file" name="image" class="form-control"/>
                             </div>
 
                             <div class="col-md-6 col-md-offset-4">

@@ -21,7 +21,7 @@
                         </div><br/> @endif
                 <!-- define the form -->
                     <div class="card-body">
-                        <form method="POST"
+                        <form method="POST" class="form-horizontal"
                               action="{{url('books') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="col-md-8 form-group">
