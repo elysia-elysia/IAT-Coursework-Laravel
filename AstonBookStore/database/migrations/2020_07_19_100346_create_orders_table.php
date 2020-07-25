@@ -17,8 +17,11 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->timestamps();
             $table->bigInteger('userid')->unsigned();
-            $table->string('orderno')->unique();
+            $table->string('username');
+            $table->text('address');
+            $table->string('cardno',16);
             $table->float('orderprice');
+            $table->integer('orderquantity');
             $table->foreign('userid')->references('id')->on('users');
         });
     }

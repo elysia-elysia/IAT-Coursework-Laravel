@@ -16,12 +16,17 @@ class OrdersTableSeeder extends Seeder
         //getting all existing User ids into a $users array
         $users = User::all()->pluck('id')->toArray();
 
-//generate 10 records for the orders table
-        foreach (range(1,10) as $index) {
+//generate 15 records for the orders table
+        foreach (range(1,15) as $index) {
             DB::table('orders')->insert([
-                'userid' =>$faker->randomElement($users),
-                'orderno'=>$faker->numberBetween(100000,999999),
-                'orderprice'=>$faker->randomFloat(2,0,999999),
+                'userid' =>$faker->numberBetween(4,5),
+                'username' =>$faker->name,
+                'address' =>$faker->address,
+                'cardno'=> $faker->creditCardNumber,
+               // 'orderno'=>$faker->numberBetween(1000,9999),
+                'orderquantity'=>$faker->numberBetween(1,15),
+                'orderprice'=>$faker->randomFloat(2,0,70),
+                'created_at'=>$faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now')
             ]);
         }
     }

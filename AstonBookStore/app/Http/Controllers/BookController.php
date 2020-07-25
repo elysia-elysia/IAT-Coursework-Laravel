@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Book;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Basket;
+use App\Order;
+
 
 
 class BookController extends Controller
@@ -255,13 +258,56 @@ class BookController extends Controller
         if(!Session::has('basket')){
             return  view('/basket');
         }
+
         $oldBasket = Session::get('basket');
         $basket = new Basket($oldBasket);
-        $total = $basket->totalPrice;
-        return view('checkout', ['totalPrice'=> $total]);
+        $errorArray = [];
+        $errorStr = "";
+        //dd($basket->items );
+//        print_r($basket);
+//        die;
+        foreach ($basket->items as $item){
+           $book = Book::find($item['item']['id']);
+
+            if ($item['quantity'] > $book->stock){
+                $errorArray[] = " You have added " .$item['quantity']. " " .$book->title. "to your basket, but there are only ". $book->stock." in stock.";
+            }
+        }
+        if (count($errorArray)==0)
+        {
+            $total = $basket->totalPrice;
+            return view('checkout', ['totalPrice'=> $total]);
+        }
+        else{
+            return back()->withErrors([$errorArray, " Please remove some items from your basket. "]);
+        }
     }
 
-    public function postCheckout(){
+    public function postCheckout(Request $request){
+        if(!Session::has('basket')){
+            return  view('/basket');
+        }
+        $oldBasket = Session::get('basket');
+        $basket = new Basket($oldBasket);
 
+        $order = new Order();
+        $order->username = $request->input('name');
+        $order->userid = auth()->user()->id;
+        $order->address = $request->input('address');
+        $order->cardno = $request->input('card-number');
+        $order->orderprice = $basket->totalPrice;
+        $order->orderquantity = $basket->totalQuantity;
+
+        $order->save();
+        foreach ($basket->items as $item) {
+            $book = Book::find($item['item']['id']);
+            $book->stock = $book->stock - $item['quantity'];
+            $book->updated_at = now();
+//            print_r($book);
+//                die;
+            $book->save();
+        }
+        Session::forget('basket');
+        return redirect('/order/success');
     }
 }

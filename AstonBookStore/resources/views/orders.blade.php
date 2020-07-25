@@ -25,6 +25,7 @@
                                 @if(Auth::check() && (Auth::user()->role == 1))
                                 <th>Customer</th>
                                 @endif
+                                <th>Order Quantity</th>
                                 <th>Order Price</th>
                                 <th>Order Date/Time</th>
                             </tr>
@@ -32,11 +33,12 @@
                             <tbody>
                             @foreach($orders as $order)
                                 <tr>
-                                    <td>{{$order['orderno']}}</td>
+                                    <td>{{$order['id']}}</td>
                                     @if(Auth::check() && (Auth::user()->role == 1))
                                     <td>{{$order['userid']}}</td>
                                     @endif
-                                    <td>{{$order['orderprice']}}</td>
+                                    <td>{{$order['orderquantity']}} {{$order['orderquantity'] > 1 ? 'books' : 'book'}}</td>
+                                    <td>£{{$order['orderprice']}}</td>
                                     <td>{{$order['created_at']}}</td>
                                 </tr>
                             @endforeach

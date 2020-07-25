@@ -35,5 +35,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/basket/{book}', 'BookController@updateBasketQuantity');
     Route::get('/checkout', 'BookController@getCheckout')->name('checkout');
     Route::post('/checkout', 'BookController@postCheckout')->name('checkout');
+    Route::view('/order/success', '/ordersuccess');
     Route::post('/admin/stockroom/{book}', 'BookController@updateStock');
 });
