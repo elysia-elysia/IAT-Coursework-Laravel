@@ -16,12 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/', 'HomeController@index');
 Route::resource('books','BookController');
 
 Auth::routes();
 
-Route::get('/welcome', 'HomeController@index')->name('welcome');
+Route::get('/home', 'HomeController@index')->name('home');
 
 //Users cannot get to these pages until they are logged in
 //It will redirect non-auth users to the login page if they try to access these pages
