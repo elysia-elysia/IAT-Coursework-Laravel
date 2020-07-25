@@ -19,8 +19,14 @@
                         </div><br /> @endif
                     <div class="card-body">
                         <table class="table table-striped" border="1" >
-                            <tr> <th> <b>ISBN Number </th> <td> {{$book['ISBN_no']}}</td></tr>
+                            <tr> <td colspan='2' ><img style="width:100%;height:100%"
+                                                       src="{{ asset('storage/images/'.$book->image,['width'=>'100','height'=>'200'])}}"></td></tr>
+                            @else
+                                <tr>  <td class="text-center" colspan='2'>No Image Available</td></tr>
+                            @endif
                             <tr> <th>Title </th> <td>{{$book->title}}</td></tr>
+                            <tr> <th> <b>ISBN Number </th> <td> {{$book['ISBN_no']}}</td></tr>
+
                             <tr> <th>Price </th> <td>£{{$book->price}}</td></tr>
                             <tr> <th>Category </th> <td>{{$book->category}}</td></tr>
                             <tr> <th>Author First Name </th> <td>{{$book->authorfirstname}}</td></tr>
@@ -29,11 +35,7 @@
                             <tr> <th>Description </th> <td style="max-width:150px;" >{{$book->description}}</td></tr>
                             <tr> <th>No. in Stock </th> <td>{{$book->stock}}</td></tr>
                             @if($book->image != "noimage.jpg")
-                            <tr> <td colspan='2' ><img style="width:100%;height:100%"
-                                                       src="{{ asset('storage/images/'.$book->image)}}"></td></tr>
-                            @else
-                                <tr>  <td class="text-center" colspan='2'>No Image Available</td></tr>
-                            @endif
+
 
                         </table>
                         <table>
