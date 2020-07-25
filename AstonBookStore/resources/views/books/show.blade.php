@@ -19,6 +19,7 @@
                         </div><br /> @endif
                     <div class="card-body">
                         <table class="table table-striped" border="1" >
+                            @if($book->image != "noimage.jpg")
                             <tr> <td colspan='2' ><img style="width:100%;height:100%"
                                                        src="{{ asset('storage/images/'.$book->image,['width'=>'100','height'=>'200'])}}"></td></tr>
                             @else
@@ -34,7 +35,7 @@
                             <tr> <th>Publishing Year </th> <td>{{$book->publishyear}}</td></tr>
                             <tr> <th>Description </th> <td style="max-width:150px;" >{{$book->description}}</td></tr>
                             <tr> <th>No. in Stock </th> <td>{{$book->stock}}</td></tr>
-                            @if($book->image != "noimage.jpg")
+
 
 
                         </table>
