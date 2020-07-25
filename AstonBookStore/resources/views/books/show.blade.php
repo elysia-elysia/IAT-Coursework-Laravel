@@ -20,8 +20,8 @@
                     <div class="card-body">
                         <table class="table table-striped" border="1" >
                             @if($book->image != "noimage.jpg")
-                            <tr> <td colspan='2' ><img style="width:100%;height:100%"
-                                                       src="{{ asset('storage/images/'.$book->image)}}" width="50" height="100"></td></tr>
+                            <tr> <td colspan='2' ><img style="width:25%;height:25%"
+                                                       src="{{ asset('storage/images/'.$book->image)}}"></td></tr>
                             @else
                                 <tr>  <td class="text-center" colspan='2'>No Image Available</td></tr>
                             @endif
