@@ -21,7 +21,7 @@
                         <table class="table table-striped" border="1" >
                             @if($book->image != "noimage.jpg")
                             <tr> <td colspan='2' ><img style="width:100%;height:100%"
-                                                       src="{{ asset('storage/images/'.$book->image,['width'=>'100','height'=>'200'])}}"></td></tr>
+                                                       src="{{ asset('storage/images/'.$book->image)}}" width="50" height="100"></td></tr>
                             @else
                                 <tr>  <td class="text-center" colspan='2'>No Image Available</td></tr>
                             @endif
