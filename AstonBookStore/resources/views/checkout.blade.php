@@ -33,7 +33,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="card-number">Credit Card Number</label>
-                                                <input type="text" id="card-number" name="card-number" class="form-control" required>
+                                                <input type="text" id="card-number" name="card-number" class="form-control" required pattern="[0-9]{16}">
                                             </div>
                                         </div>
                                         <div class="col">
