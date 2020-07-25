@@ -21,12 +21,12 @@
                         <table class="table table-striped" border="1" >
 
                             @if($book->image != "noimage.jpg")
-                            <tr> <td colspan='2' ><img class="img-thumbnail text-center" style="width:25%;height:35%"
+                            <tr> <td colspan='2' ><img class="img-thumbnail rounded mx-auto d-block" style="width:25%;height:35%"
                                                        src="{{ asset('storage/images/'.$book->image)}}"></td></tr>
                             @else
                                 <tr>  <td class="text-center" colspan='2'>No Image Available</td></tr>
                             @endif
-                            
+
                             <tr> <th>Title </th> <td>{{$book->title}}</td></tr>
                             <tr> <th> <b>ISBN Number </th> <td> {{$book['ISBN_no']}}</td></tr>
 
