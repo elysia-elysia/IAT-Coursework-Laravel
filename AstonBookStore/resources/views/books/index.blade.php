@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
 {{--    <div class="container">--}}
         <div class="row justify-content-center">
             <div class="col-md-12 ">
@@ -102,57 +101,7 @@
                             </tbody>
                         </table>
                     </div>
-
-{{--                    <script>--}}
-{{--                        $(document).ready(function() {--}}
-{{--                            $('#books').DataTable({--}}
-{{--                                processing: true,--}}
-{{--                                serverSide: true,--}}
-{{--                                ajax: '{{ url('books.index') }}',--}}
-{{--                                columns: [--}}
-{{--                                    { data: 'ISBN Number', name: 'ISBN Number' },--}}
-{{--                                    { data: 'Title', name: 'Title' },--}}
-{{--                                    { data: 'Price', name: 'Price' },--}}
-{{--                                        { data: 'Category', name: 'Category' },--}}
-{{--                                        { data: 'Author First Name', name: 'Author First Name' },--}}
-{{--                                        { data: 'Author Last Name', name: 'Author Last Name' },--}}
-{{--                                        { data: 'Publishing Year', name: 'Publishing Year' },--}}
-{{--                                        { data: 'No. in Stock', name: 'No. in Stock' },--}}
-{{--                                    {data: 'action', name: 'action', orderable: false, searchable: false}--}}
-{{--                                ]--}}
-{{--                            });--}}
-{{--                        });--}}
-{{--                    </script>--}}
                 </div>
             </div>
         </div>
-
-{{--<script type="text/javascript">--}}
-{{--    $(function () {--}}
-
-{{--        $.ajaxSetup({--}}
-{{--            headers: {--}}
-{{--                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-{{--            }--}}
-{{--        });--}}
-
-{{--        var table = $('.data-table').DataTable({--}}
-{{--            processing: true,--}}
-{{--            serverSide: true,--}}
-{{--            ajax: "{{ route('books.index') }}",--}}
-{{--            columns: [--}}
-{{--                { data: 'ISBN Number', name: 'ISBN Number' },--}}
-{{--                { data: 'Title', name: 'Title' },--}}
-{{--                { data: 'Price', name: 'Price' },--}}
-{{--                { data: 'Category', name: 'Category' },--}}
-{{--                { data: 'Author First Name', name: 'Author First Name' },--}}
-{{--                { data: 'Author Last Name', name: 'Author Last Name' },--}}
-{{--                { data: 'Publishing Year', name: 'Publishing Year' },--}}
-{{--                { data: 'No. in Stock', name: 'No. in Stock' },--}}
-{{--                {data: 'action', name: 'action', orderable: false, searchable: false}--}}
-{{--            ]--}}
-{{--        });--}}
-{{--    });--}}
-{{--</script>--}}
-{{--    </div>--}}
 @endsection
