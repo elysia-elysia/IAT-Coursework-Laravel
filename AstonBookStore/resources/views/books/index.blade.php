@@ -1,16 +1,20 @@
 @extends('layouts.app')
-@section('scripts')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src = "https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
 
-    <script>
-        $(document).ready(function() {
-            $('#books').DataTable();
-        } );
-    </script>
-@endsection
 @section('content')
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('#books').DataTable( {
+            } );
+        } );
+
+    </script>
 {{--    <div class="container">--}}
         <div class="row justify-content-center">
             <div class="col-md-12 ">
