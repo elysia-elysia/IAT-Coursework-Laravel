@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('books','BookController');
-
+Route::post('books', 'BookController@filterSort');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -1,10 +1,20 @@
 @extends('layouts.app')
 @section('content')
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#books').DataTable();
+    } );</script>
 {{--    <div class="container">--}}
         <div class="row justify-content-center">
             <div class="col-md-12 ">
                 <div class="card">
-                    <form>
+                    <div class="align-content-center">
+                    <form method="POST" action="{{ action('BookController@filterSort') }} " enctype="multipart/form-data" class="form-inline">
+                        @method('PATCH')
+                        @csrf
                     <p class="font-weight-bold">Filter by category:</p>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
@@ -21,8 +31,15 @@
                             <input class="form-check-input" type="checkbox" id="filterLanguages" name="filterLanguages" value="Languages"> Languages
                         </label>
                     </div>
+                        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="sortBy" name="sortBy">
+                            <option selected>Sort By</option>
+                            <option value="priceHL">Price (High to Low)</option>
+                            <option value="priceLH">Price (Low to High)</option>
+                            <option value="3">Three</option>
+                        </select>
                     <button type="submit" class="btn btn-primary">Filter</button>
                     </form>
+                    </div>
                     <div class="card-header">All Books</div>
                     <!-- display the errors -->
                     @if ($errors->any())
@@ -37,7 +54,7 @@
                             <p>{{ \Session::get('success') }}</p>
                         </div><br /> @endif
                     <div class="card-body">
-                        <table class="table table-striped">
+                        <table class="table table-striped" id="books">
                             <thead>
                             <tr>
                                 <th>ISBN Number</th>

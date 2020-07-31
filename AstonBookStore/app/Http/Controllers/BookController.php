@@ -26,6 +26,18 @@ class BookController extends Controller
         $books = Book::all()->toArray();
         return view('books.index', compact('books'));
     }
+
+    public function filterSort()
+    {
+        //Check if a filter or sort has been selected then show results
+        $booksQuery = Book::all();
+        $booksQuery = $booksQuery->where('userid', auth()->user()->id);
+
+        return view('books.index', array('books' => $booksQuery));
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *
