@@ -20,13 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src = "https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
 
-    <script type="text/javascript">
 
-        $(document).ready(function() {
-            $('#books').DataTable( {
-            } );
-        } );
-    </script>
 </head>
 <body>
     <div id="app">
