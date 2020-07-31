@@ -1,6 +1,13 @@
 @extends('layouts.app')
 @section('content')
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            $('#books').dataTable();
+        } );
+    </script>
 {{--    <div class="container">--}}
         <div class="row justify-content-center">
             <div class="col-md-12 ">
@@ -126,16 +133,7 @@
                 </div>
             </div>
         </div>
-<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables.css">
-<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables_themeroller.css">
-<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
-<script>
 
-        $('#books').dataTable();
-
-
-</script>
 {{--<script type="text/javascript">--}}
 {{--    $(function () {--}}
 
