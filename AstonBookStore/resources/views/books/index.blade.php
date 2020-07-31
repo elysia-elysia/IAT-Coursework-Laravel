@@ -64,6 +64,7 @@
                                 <th>Publishing Year</th>
                                 <th>No. in Stock</th>
                                 <th colspan="3">Action</th>
+                                <th colspan="3"></th>
                             </tr>
                             </thead>
                             <tbody>
