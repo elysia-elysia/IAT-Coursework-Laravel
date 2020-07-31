@@ -4,14 +4,14 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#books').DataTable( {
-                "order": [],
-                "columnDefs": [{
-                    "targets": [ 0, 5 ],
-                    "orderable": true
-                }],
-                processing: true,
-                serverSide: true,
-                ajax: '{{ url('books.index') }}',
+                {{--"order": [],--}}
+                {{--"columnDefs": [{--}}
+                {{--    "targets": [ 0, 5 ],--}}
+                {{--    "orderable": true--}}
+                {{--}],--}}
+                {{--processing: true,--}}
+                {{--serverSide: true,--}}
+                {{--ajax: '{{ url('books.index') }}',--}}
                 // columns: [
                 //
                 //         { data: 'ISBN_no', name: 'ISBN_no' },
