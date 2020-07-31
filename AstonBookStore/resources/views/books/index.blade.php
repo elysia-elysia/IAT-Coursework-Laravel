@@ -1,11 +1,30 @@
 @extends('layouts.app')
 @section('scripts')
-    <script src = "https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
     <script type="text/javascript">
-
         $(document).ready(function() {
             $('#books').DataTable( {
-            } );
+                "order": [],
+                "columnDefs": [{
+                    "targets": [ 0, 5 ],
+                    "orderable": true
+                }],
+                processing: true,
+                serverSide: true,
+                ajax: '{{ url('books.index') }}',
+                columns: [
+
+                        { data: 'ISBN_no', name: 'ISBN_no' },
+                        { data: 'title', name: 'title' },
+                    { data: 'price', name: 'price' },
+                    { data: 'category', name: 'category' },
+                    { data: 'authorfirstname', name: 'authorfirstname' },
+                    { data: 'authorlastname', name: 'authorlastname' },
+                    { data: 'publishyear', name: 'publishyear' },
+                    { data: 'stock', name: 'stock' }
+
+                ]
+            });
         } );
     </script>
 @endsection
