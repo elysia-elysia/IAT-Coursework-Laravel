@@ -130,7 +130,7 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 
 <script>
-    $(document).ready(function() {
+    $(function() {
         $('#books').DataTable();
         alert( 'Hello, world!' );
     } );
