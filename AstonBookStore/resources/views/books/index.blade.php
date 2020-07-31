@@ -4,6 +4,23 @@
         <div class="row justify-content-center">
             <div class="col-md-12 ">
                 <div class="card">
+                    <p class="font-weight-bold">Filter by category:</p>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="filterComputing" name="filterComputing">
+                        <label class="custom-control-label" for="filterComputing">Computing</label>
+                    </div>
+
+                    <!-- Default inline 2-->
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="filterBusiness" name="filterBusiness">
+                        <label class="custom-control-label" for="filterBusiness">Business</label>
+                    </div>
+
+                    <!-- Default inline 3-->
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="filterLanguages" name="filterLanguages">
+                        <label class="custom-control-label" for="filterLanguages">Languages</label>
+                    </div>
                     <div class="card-header">All Books</div>
                     <!-- display the errors -->
                     @if ($errors->any())
