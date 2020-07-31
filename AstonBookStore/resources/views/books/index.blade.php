@@ -113,7 +113,7 @@
                             $('#books').DataTable({
                                 processing: true,
                                 serverSide: true,
-                                ajax: '{{ url('index') }}',
+                                ajax: '{{ url('books') }}',
                                 columns: [
                                     { data: 'ISBN Number', name: 'ISBN Number' },
                                     { data: 'Title', name: 'Title' },
