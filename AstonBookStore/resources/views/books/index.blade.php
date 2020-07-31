@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('styles')
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
-@endsection
+{{--@section('styles')--}}
+{{--    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">--}}
+{{--@endsection--}}
 
 @section('content')
 {{--    <div class="container">--}}
