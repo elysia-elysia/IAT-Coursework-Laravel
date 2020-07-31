@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Basket;
 use App\Order;
-use DataTables;
+use Yajra\DataTables\DataTables;
 
 
 class BookController extends Controller
@@ -26,7 +26,7 @@ class BookController extends Controller
 
 //        $books = Book::all()->toArray();
 //        return view('books.index', compact('books'));
-        return \DataTables::of(Book::query())->make(true);
+        return DataTables::of(Book::query())->make(true);
     }
 
     public function filterSort()
