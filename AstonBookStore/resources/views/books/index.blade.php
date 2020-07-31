@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('scripts')
-    <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
-    <script src= "https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src = "https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
+
     <script>
         $(document).ready(function() {
             $('#books').DataTable();
