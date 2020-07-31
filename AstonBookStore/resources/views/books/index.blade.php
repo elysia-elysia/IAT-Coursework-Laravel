@@ -1,9 +1,14 @@
 @extends('layouts.app')
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
-<script>
+    <script src="//code.jquery.com/jquery-1.12.3.js"></script>
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script
+        src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet"
+          href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+    <script>
     $(document).ready(function() {
         $('#books').DataTable();
     } );</script>
@@ -11,35 +16,6 @@
         <div class="row justify-content-center">
             <div class="col-md-12 ">
                 <div class="card">
-                    <div class="align-content-center">
-                    <form method="POST" action="{{ action('BookController@filterSort') }} " enctype="multipart/form-data" class="form-inline">
-                        @method('PATCH')
-                        @csrf
-                    <p class="font-weight-bold">Filter by category:</p>
-                    <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" id="filterComputing" name="filterComputing" value="Computing"> Computing
-                        </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" id="filterBusiness" name="filterBusiness" value="Business"> Business
-                        </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" id="filterLanguages" name="filterLanguages" value="Languages"> Languages
-                        </label>
-                    </div>
-                        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="sortBy" name="sortBy">
-                            <option selected>Sort By</option>
-                            <option value="priceHL">Price (High to Low)</option>
-                            <option value="priceLH">Price (Low to High)</option>
-                            <option value="3">Three</option>
-                        </select>
-                    <button type="submit" class="btn btn-primary">Filter</button>
-                    </form>
-                    </div>
                     <div class="card-header">All Books</div>
                     <!-- display the errors -->
                     @if ($errors->any())
@@ -53,6 +29,36 @@
                         <div class="alert alert-success">
                             <p>{{ \Session::get('success') }}</p>
                         </div><br /> @endif
+                    <div class="align-content-center">
+                        <form method="POST" action="{{ action('BookController@filterSort') }} " enctype="multipart/form-data" class="form-inline">
+                            @method('PATCH')
+                            @csrf
+                            <p class="font-weight-bold">Filter by category:</p>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" id="filterComputing" name="filterComputing" value="Computing"> Computing
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" id="filterBusiness" name="filterBusiness" value="Business"> Business
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" id="filterLanguages" name="filterLanguages" value="Languages"> Languages
+                                </label>
+                            </div>
+                            <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="sortBy" name="sortBy">
+                                <option selected>Sort By</option>
+                                <option value="priceHL">Price (High to Low)</option>
+                                <option value="priceLH">Price (Low to High)</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Filter</button>
+                        </form>
+                    </div>
+
                     <div class="card-body">
                         <table class="table table-striped" id="books">
                             <thead>
