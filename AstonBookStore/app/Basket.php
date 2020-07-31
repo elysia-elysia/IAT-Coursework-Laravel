@@ -3,7 +3,6 @@ namespace App;
 
 class Basket
 {
-    setlocale(LC_MONETARY, 'en_GB');
     public $items = null;
     public $totalQuantity = 0;
     public $totalPrice = 0.00;
