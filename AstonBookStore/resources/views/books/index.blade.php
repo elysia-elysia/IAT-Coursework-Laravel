@@ -1,4 +1,13 @@
 @extends('layouts.app')
+@section('scripts')
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('#books').DataTable( {
+            } );
+        } );
+    </script>
+@endsection
 @section('content')
 {{--    <div class="container">--}}
         <div class="row justify-content-center">

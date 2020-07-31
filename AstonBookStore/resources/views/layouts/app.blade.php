@@ -111,12 +111,6 @@
             @yield('content')
         </main>
     </div>
-    <script type="text/javascript">
 
-        $(document).ready(function() {
-            $('#books').DataTable( {
-            } );
-        } );
-    </script>
 </body>
 </html>
