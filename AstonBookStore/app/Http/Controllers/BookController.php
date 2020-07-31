@@ -26,7 +26,10 @@ class BookController extends Controller
 
 //        $books = Book::all()->toArray();
 //        return view('books.index', compact('books'));
-        return Datatables::of(Book::query())->make(true);
+        //return Datatables::of(Book::query())->make(true);
+        return datatables()->of(\DB::table('books')->select('*'))
+            ->make(true);
+
     }
 
     public function filterSort()
