@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-{{--@section('styles')--}}
-{{--    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">--}}
-{{--@endsection--}}
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+@endsection
 
 @section('content')
 
         <div class="row justify-content-center">
-            <div class="col-md-8 ">
+{{--            <div class="col-md-8 ">--}}
                 <div class="card">
                     <div class="card-header">Previous Orders</div>
                     <!-- display the errors -->
@@ -52,7 +52,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+{{--        </div>--}}
 
 @endsection
 @section('scripts')
