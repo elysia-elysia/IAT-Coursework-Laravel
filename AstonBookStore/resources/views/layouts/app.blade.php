@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css"/>
 </head>
 <body>
     <div id="app">
@@ -102,7 +103,7 @@
                 </div>
             </div>
         </nav>
-
+        <script type="text/javascript" src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.js"></script>
         <main class="py-4">
             @yield('content')
         </main>
