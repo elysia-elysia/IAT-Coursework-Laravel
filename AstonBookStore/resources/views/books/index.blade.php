@@ -12,18 +12,18 @@
                 processing: true,
                 serverSide: true,
                 ajax: '{{ url('books.index') }}',
-                columns: [
-
-                        { data: 'ISBN_no', name: 'ISBN_no' },
-                        { data: 'title', name: 'title' },
-                    { data: 'price', name: 'price' },
-                    { data: 'category', name: 'category' },
-                    { data: 'authorfirstname', name: 'authorfirstname' },
-                    { data: 'authorlastname', name: 'authorlastname' },
-                    { data: 'publishyear', name: 'publishyear' },
-                    { data: 'stock', name: 'stock' }
-
-                ]
+                // columns: [
+                //
+                //         { data: 'ISBN_no', name: 'ISBN_no' },
+                //         { data: 'title', name: 'title' },
+                //     { data: 'price', name: 'price' },
+                //     { data: 'category', name: 'category' },
+                //     { data: 'authorfirstname', name: 'authorfirstname' },
+                //     { data: 'authorlastname', name: 'authorlastname' },
+                //     { data: 'publishyear', name: 'publishyear' },
+                //     { data: 'stock', name: 'stock' }
+                //
+                // ]
             });
         } );
     </script>
