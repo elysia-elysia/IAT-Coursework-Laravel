@@ -1,17 +1,5 @@
 @extends('layouts.app')
 @section('content')
-    <script src="//code.jquery.com/jquery-1.12.3.js"></script>
-    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script
-        src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-    <link rel="stylesheet"
-          href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet"
-          href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
-    <script>
-    $(document).ready(function() {
-        $('#books').DataTable();
-    } );</script>
 {{--    <div class="container">--}}
         <div class="row justify-content-center">
             <div class="col-md-12 ">
@@ -117,4 +105,15 @@
             </div>
         </div>
 {{--    </div>--}}
+@endsection
+@section('scripts')
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#tablegg').DataTable();
+        });
+    </script>
+
 @endsection
