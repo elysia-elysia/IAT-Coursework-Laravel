@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Basket;
 use App\Order;
-
+use DataTables;
 
 
 class BookController extends Controller

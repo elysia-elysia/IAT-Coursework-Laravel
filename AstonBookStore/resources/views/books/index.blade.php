@@ -122,7 +122,8 @@
                                         { data: 'Author First Name', name: 'Author First Name' },
                                         { data: 'Author Last Name', name: 'Author Last Name' },
                                         { data: 'Publishing Year', name: 'Publishing Year' },
-                                        { data: 'No. in Stock', name: 'No. in Stock' }
+                                        { data: 'No. in Stock', name: 'No. in Stock' },
+                                    {data: 'action', name: 'action', orderable: false, searchable: false}
                                 ]
                             });
                         });
