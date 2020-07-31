@@ -63,7 +63,7 @@
                                 <th>Author Last Name</th>
                                 <th>Publishing Year</th>
                                 <th>No. in Stock</th>
-                                <th colspan="3">Action</th>
+                                <th >Action</th>
                             </tr>
                             </thead>
                             <tbody>
