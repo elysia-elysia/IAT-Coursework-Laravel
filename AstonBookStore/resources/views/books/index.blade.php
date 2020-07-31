@@ -1,15 +1,7 @@
 @extends('layouts.app')
 @section('content')
-    
-    <script src = "https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
 
-    <script type="text/javascript">
 
-        $(document).ready(function() {
-            $('#books').DataTable( {
-            } );
-        } );
-    </script>
 {{--    <div class="container">--}}
         <div class="row justify-content-center">
             <div class="col-md-12 ">
