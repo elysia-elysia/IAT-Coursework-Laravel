@@ -21,15 +21,20 @@ class BookController extends Controller
      * @return \Illuminate\Http\Response
      */
     //Book Functions
-    public function index()
+    public function index(Request $request)
     {
 
 //        $books = Book::all()->toArray();
 //        return view('books.index', compact('books'));
-        //return Datatables::of(Book::query())->make(true);
-        return datatables()->of(\DB::table('books')->select('*'))
-            ->make(true);
+       // return Datatables::of(Book::query())->make(true);
+        if ($request->ajax()) {
+            $data = Book::latest()->get();
+            return Datatables::of($data)
+                ->rawColumns(['action'])
+                ->make(true);
+        }
 
+        return view('books.index',compact('books'));
     }
 
     public function filterSort()
