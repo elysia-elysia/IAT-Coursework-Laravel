@@ -105,6 +105,14 @@
                 </div>
             </div>
         </nav>
+        <script type="text/javascript">
+
+            $(document).ready(function() {
+                $('#books').DataTable( {
+                } );
+            } );
+        </script>
+
         <main class="py-4">
             @yield('content')
         </main>
