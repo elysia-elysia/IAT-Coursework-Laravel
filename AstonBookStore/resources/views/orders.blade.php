@@ -60,7 +60,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             // Setup - add a text input to each footer cell
-            $('#orders thead tr').clone(true).appendTo( '#example thead' );
+            $('#orders thead tr').clone(true).appendTo( '#orders thead' );
             $('#orders thead tr:eq(1) th').each( function (i) {
                 var title = $(this).text();
                 $(this).html( '<input type="text" placeholder="Search '+title+'" />' );

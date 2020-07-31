@@ -85,6 +85,21 @@
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+            // Setup - add a text input to each footer cell
+            $('#books thead tr').clone(true).appendTo( '#books thead' );
+            $('#books thead tr:eq(1) th').each( function (i) {
+                var title = $(this).text();
+                $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+
+                $( 'input', this ).on( 'keyup change', function () {
+                    if ( table.column(i).search() !== this.value ) {
+                        table
+                            .column(i)
+                            .search( this.value )
+                            .draw();
+                    }
+                } );
+            } );
             $('#books').dataTable();
         });
     </script>
