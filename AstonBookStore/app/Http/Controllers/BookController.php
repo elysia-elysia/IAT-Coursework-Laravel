@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Basket;
 use App\Order;
-use Yajra\Datatables\Datatables;
 
 
 class BookController extends Controller
@@ -24,9 +23,9 @@ class BookController extends Controller
     public function index(Request $request)
     {
 
-//        $books = Book::all()->toArray();
-//        return view('books.index', compact('books'));
-        return DataTables::of(Book::query())->make(true);
+        $books = Book::all()->toArray();
+        return view('books.index', compact('books'));
+        //return DataTables::of(Book::query())->make(true);
        // return Datatables::of(Book::query())->make(true);
 //        if ($request->ajax()) {
 //            $data = Book::latest()->get();
