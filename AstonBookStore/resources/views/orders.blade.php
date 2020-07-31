@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="container">
+
         <div class="row justify-content-center">
             <div class="col-md-8 ">
                 <div class="card">
@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-    </div>
+   
 @endsection
 @section('scripts')
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
