@@ -23,8 +23,10 @@ class BookController extends Controller
     //Book Functions
     public function index()
     {
-        $books = Book::all()->toArray();
-        return view('books.index', compact('books'));
+
+//        $books = Book::all()->toArray();
+//        return view('books.index', compact('books'));
+        return \DataTables::of(Book::query())->make(true);
     }
 
     public function filterSort()
