@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Basket;
 use App\Order;
-use Yajra\DataTables\DataTables;
+use Yajra\Datatables\Datatables;
 
 
 class BookController extends Controller
