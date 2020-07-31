@@ -3,6 +3,7 @@ namespace App;
 
 class Basket
 {
+    setlocale(LC_MONETARY, 'en_GB');
     public $items = null;
     public $totalQuantity = 0;
     public $totalPrice = 0.00;
@@ -79,6 +80,7 @@ class Basket
             $this->totalQuantity += $item['quantity'];
             $this->totalPrice += $item['quantity'] * $item['price'];
         }
+        $this->totalPrice = number_format($this->totalPrice, 2, '.', '');
     }
 
 }
