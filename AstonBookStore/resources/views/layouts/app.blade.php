@@ -9,8 +9,8 @@
 
     <title>{{ config('Book Store', 'Book Store') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+{{--    <!-- Scripts -->--}}
+{{--    <script src="{{ asset('js/app.js') }}"></script>--}}
 {{--<script src="https://code.jquery.com/jquery-3.2.1.js"></script>--}}
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -111,6 +111,9 @@
             @yield('content')
         </main>
     </div>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 @yield('scripts')
 </body>
 </html>
