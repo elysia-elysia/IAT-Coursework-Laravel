@@ -4,23 +4,25 @@
         <div class="row justify-content-center">
             <div class="col-md-12 ">
                 <div class="card">
+                    <form>
                     <p class="font-weight-bold">Filter by category:</p>
-                    <div class="custom-control custom-checkbox custom-control-inline">
-                        <input type="checkbox" class="custom-control-input" id="filterComputing" name="filterComputing">
-                        <label class="custom-control-label" for="filterComputing">Computing</label>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" id="filterComputing" name="filterComputing" value="Computing"> Computing
+                        </label>
                     </div>
-
-                    <!-- Default inline 2-->
-                    <div class="custom-control custom-checkbox custom-control-inline">
-                        <input type="checkbox" class="custom-control-input" id="filterBusiness" name="filterBusiness">
-                        <label class="custom-control-label" for="filterBusiness">Business</label>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" id="filterBusiness" name="filterBusiness" value="Business"> Business
+                        </label>
                     </div>
-
-                    <!-- Default inline 3-->
-                    <div class="custom-control custom-checkbox custom-control-inline">
-                        <input type="checkbox" class="custom-control-input" id="filterLanguages" name="filterLanguages">
-                        <label class="custom-control-label" for="filterLanguages">Languages</label>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" id="filterLanguages" name="filterLanguages" value="Languages"> Languages
+                        </label>
                     </div>
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                    </form>
                     <div class="card-header">All Books</div>
                     <!-- display the errors -->
                     @if ($errors->any())
