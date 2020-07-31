@@ -24,17 +24,17 @@ class BookController extends Controller
     public function index(Request $request)
     {
 
-//        $books = Book::all()->toArray();
-//        return view('books.index', compact('books'));
+        $books = Book::all()->toArray();
+        return view('books.index', compact('books'));
        // return Datatables::of(Book::query())->make(true);
-        if ($request->ajax()) {
-            $data = Book::latest()->get();
-            return Datatables::of($data)
-                ->rawColumns(['action'])
-                ->make(true);
-        }
-
-        return view('books.index',compact('books'));
+//        if ($request->ajax()) {
+//            $data = Book::latest()->get();
+//            return Datatables::of($data)
+//                ->rawColumns(['action'])
+//                ->make(true);
+//        }
+//
+//        return view('books.index',compact('books'));
     }
 
     public function filterSort()
