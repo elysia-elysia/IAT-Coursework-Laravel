@@ -113,10 +113,10 @@ class BookController extends Controller
             }
         } else {
             $fileNameToStore = 'noimage.jpg';
-            //$filename = $fileNameToStore->storeAs('public/images', $fileNameToStore);
+            $filename = $fileNameToStore->storeAs('public/images', $fileNameToStore);
             BookImage::create([
                 'book_id' => $book->id,
-                'filename' => $fileNameToStore
+                'filename' => $filename
             ]);
         }
 
@@ -228,10 +228,10 @@ class BookController extends Controller
                 $fileNameToStore = $filename . '_' . time() . '.' . $extension;
                 //$items = Item::create($request->all());
 
-                //$filename = $image->storeAs('public/images', $fileNameToStore);
+                $filename = $image->storeAs('public/images', $fileNameToStore);
                 BookImage::create([
                     'book_id' => $book->id,
-                    'filename' => $fileNameToStore
+                    'filename' => $filename
                 ]);
 
             }
