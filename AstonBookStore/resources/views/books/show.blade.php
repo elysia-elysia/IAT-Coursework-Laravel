@@ -18,22 +18,25 @@
                             <p>{{ \Session::get('success') }}</p>
                         </div><br/> @endif
                     <div class="card-body">
+                        <div class="row">
+                        @foreach($images as $image)
+                            @if(count($images)==0)
+
+                                    <p class="text-center" colspan='2'>No Image Available</p>
+
+                            @else
+                                    <div class="column">
+                                <img class="img-thumbnail rounded mx-auto d-block"
+                                     style="width:200px;height:200px"
+                                     src="{{ asset('storage/images/'.$image['filename'])}}">
+                                    </div>
+                            @endif
+                        @endforeach
+                        </div>
                         <table class="table table-striped" border="1">
-                            <tr>
-                                <td colspan='2'>
-                            @foreach($images as $image)
-                                @if(count($images)==0)
-                                    <tr>
-                                        <td class="text-center" colspan='2'>No Image Available</td>
-                                    </tr>
-                                @else
-                                    <img class="img-thumbnail rounded mx-auto d-block"
-                                                             style="width:25%;height:35%"
-                                                             src="{{ asset('storage/images/'.$image['filename'])}}">
-                                @endif
-                            @endforeach
-                                </td>
-                                    </tr>
+
+
+
                             <tr>
                                 <th>Title</th>
                                 <td>{{$book->title}}</td>
