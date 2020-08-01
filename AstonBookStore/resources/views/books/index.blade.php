@@ -66,9 +66,9 @@
                                     @endif
                                     @if(Auth::check() && (Auth::user()->role == 0))
                                         @if($book['stock']<= 0)
-                                            <a href="{{action('BookController@addToBasket', $book['id'])}}" class="btn btn-secondary disabled">Out Of Stock</a>
+                                            <a href="{{action('OrderController@addToBasket', $book['id'])}}" class="btn btn-secondary disabled">Out Of Stock</a>
                                         @else
-                                            <a href="{{action('BookController@addToBasket', $book['id'])}}" class="btn btn-primary">Add To Basket</a>
+                                            <a href="{{action('OrderController@addToBasket', $book['id'])}}" class="btn btn-primary">Add To Basket</a>
                                             @endif
                                             @endif
                                     </td>

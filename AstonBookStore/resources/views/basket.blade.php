@@ -43,7 +43,7 @@
                                             <td>
                                                 <div class="row">
                                                     <div class="col">
-                                                        <form action="{{action('BookController@updateBasketQuantity', $book['item']['id'])}}"
+                                                        <form action="{{action('OrderController@updateBasketQuantity', $book['item']['id'])}}"
                                                               method="post"> @csrf
                                                             <div class="row">
                                                                 <div class="col">
@@ -56,7 +56,7 @@
                                                         </form>
                                                     </div>
                                                     <div class="col-md-auto">
-                                                        <form action="{{action('BookController@removeFromBasket', $book['item']['id'])}}"
+                                                        <form action="{{action('OrderController@removeFromBasket', $book['item']['id'])}}"
                                                               method="post"> @csrf
                                                             <input name="_method" type="hidden" value="DELETE">
                                                             <button class="btn btn-danger" type="submit"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
