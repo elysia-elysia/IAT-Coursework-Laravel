@@ -21,8 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="7f4baa15-d634-4539-8b7d-ad0dfaf3ed2c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/books/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/books/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Basket.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Basket.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/BookImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/BookImage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BookController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,8 +161,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\IAT-Coursework-Laravel\AstonBookStore\database\migrations" />
       <recent name="C:\xampp\htdocs\IAT-Coursework-Laravel\AstonBookStore\database" />
+      <recent name="C:\xampp\htdocs\IAT-Coursework-Laravel\AstonBookStore\database\migrations" />
       <recent name="C:\xampp\htdocs\IAT-Coursework-Laravel\AstonBookStore\resources\views" />
       <recent name="C:\xampp\htdocs\IAT-Coursework-Laravel\AstonBookStore\resources\views\books" />
     </key>
@@ -183,7 +187,7 @@
       <workItem from="1594981597491" duration="16456000" />
       <workItem from="1595080894941" duration="6871000" />
       <workItem from="1595148003861" duration="9905000" />
-      <workItem from="1596180819350" duration="16730000" />
+      <workItem from="1596180819350" duration="52775000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1592324933526</created>
@@ -231,6 +235,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="use local database" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="371" y="95" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1596273628099">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="371" y="95" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1596273628099" />
     <state x="795" y="263" key="NewPhpFileDialog" timestamp="1595148277353">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -244,10 +252,15 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="29" y="0" width="587" height="680" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1592418463315" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1595083404121">
+    <state x="297" y="151" key="run.anything.popup" timestamp="1596293244190">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="297" y="151" key="run.anything.popup/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1596293244190" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1596282575987">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1594998340858" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1596282575987" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1595083404121" />
   </component>
 </project>

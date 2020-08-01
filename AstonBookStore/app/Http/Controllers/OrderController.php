@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
+    /**
+     * Display all orders
+     * When admin show all orders
+     * When customer only show customer's orders
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function displayOrders()
     {
         $ordersQuery = Order::all();
@@ -24,6 +31,12 @@ class OrderController extends Controller
     }
 
     //Basket Functions
+
+    /**
+     * Show the basket page with information from the Basket session
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getBasket()
     {
         if (!Session::has('basket')) {
@@ -34,6 +47,13 @@ class OrderController extends Controller
         return view('/basket', ['books' => $basket->items, 'totalPrice' => $basket->totalPrice, 'totalQuantity' => $basket->totalQuantity]);
     }
 
+    /**
+     * Add an item to the basket session
+     *
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function addToBasket(Request $request, $id)
     {
         $book = Book::find($id);
@@ -45,6 +65,12 @@ class OrderController extends Controller
         return redirect()->route('books.index')->with('success', 'Book added to your basket successfully!');
     }
 
+    /**
+     * Remove an item from the basket session
+     *
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function removeFromBasket($id)
     {
         $oldBasket = Session::has('basket') ? Session::get('basket') : null;
@@ -60,6 +86,13 @@ class OrderController extends Controller
         return back()->with('success', 'Book removed from your basket successfully!');
     }
 
+    /**
+     * Update the quantity of an item in the basket session
+     *
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updateBasketQuantity(Request $request, $id)
     {
         $book = Book::find($id);
@@ -72,6 +105,12 @@ class OrderController extends Controller
     }
 
     //Checkout Functions
+
+    /**
+     * Show the checkout page
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function getCheckout()
     {
         if (!Session::has('basket')) {
@@ -97,6 +136,12 @@ class OrderController extends Controller
         }
     }
 
+    /**
+     * Complete the checkout form, send an email receipt and clear the basket session
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
     public function postCheckout(Request $request)
     {
         if (!Session::has('basket')) {
@@ -125,6 +170,12 @@ class OrderController extends Controller
         return redirect('/order/success');
     }
 
+    /**
+     * Get information about the order to send for the email notification
+     *
+     * @param $ordernum
+     * @param $orderprice
+     */
     public function sendOrderReceiptNotification($ordernum, $orderprice)
     {
         $user = auth()->user();

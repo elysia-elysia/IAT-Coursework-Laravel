@@ -43,6 +43,7 @@ class BookController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
@@ -93,8 +94,7 @@ class BookController extends Controller
                 ]);
 
             }
-        } else {
-//
+        } else {//
         }
         // generate a redirect HTTP response with a success message
         return back()->with('success', 'The book has been created');
@@ -106,8 +106,7 @@ class BookController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function show($id)
+    public function show($id)
     {
         $book = Book::find($id);
         $imagesQuery = BookImage::all();
@@ -122,8 +121,7 @@ class BookController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function edit($id)
+    public function edit($id)
     {
         $book = Book::find($id);
         return view('books.edit', compact('book'));
@@ -135,9 +133,9 @@ class BookController extends Controller
      * @param \Illuminate\Http\Request $request
      * @param int $id
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
-    public
-    function update(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $book = Book::find($id);
         // form validation
@@ -173,22 +171,16 @@ class BookController extends Controller
                 $extension = $image->getClientOriginalExtension();
                 //Gets the filename to store
                 $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-                //$items = Item::create($request->all());
-
                 $filename = $image->storeAs('public/images', $fileNameToStore);
                 BookImage::create([
                     'book_id' => $book->id,
                     'filename' => $fileNameToStore
                 ]);
-
             }
-        } else {
-
-        }
+        } else {}
         $book->save();
         return redirect('books')->with('success', 'The book has been updated');
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -196,8 +188,7 @@ class BookController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function destroy($id)
+    public function destroy($id)
     {
         $book = Book::find($id);
         $book->delete();
@@ -205,15 +196,27 @@ class BookController extends Controller
     }
 
     //Stock Room Functions
-    public
-    function stockroom()
+
+    /**
+     * Show the stockroom for admins to edit a books stock
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function stockroom()
     {
         $books = Book::all()->toArray();
         return view('/admin/stockroom', compact('books'));
     }
 
-    public
-    function updateStock(Request $request, $id)
+    /**
+     * Update a books stock and save to the database
+     *
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function updateStock(Request $request, $id)
     {
         $book = Book::find($id);
         // form validation

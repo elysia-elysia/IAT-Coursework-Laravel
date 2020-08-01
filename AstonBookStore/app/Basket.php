@@ -8,6 +8,10 @@ class Basket
     public $totalQuantity = 0;
     public $totalPrice = 0.00;
 
+    /**
+     * Basket constructor.
+     * @param $oldBasket
+     */
     public function __construct($oldBasket)
     {
         if ($oldBasket) {
@@ -17,6 +21,12 @@ class Basket
         }
     }
 
+    /**
+     * Add an item to the basket
+     *
+     * @param $item
+     * @param $id
+     */
     public function add($item, $id)
     {
         $storedItem = ['quantity' => 0, 'price' => $item->price, 'item' => $item];
@@ -33,6 +43,9 @@ class Basket
         $this->calculateTotals();
     }
 
+    /**
+     * Calculate the total cost and total number of items in the basket
+     */
     public function calculateTotals()
     {
         $this->totalQuantity = 0;
@@ -44,6 +57,13 @@ class Basket
         $this->totalPrice = number_format($this->totalPrice, 2, '.', '');
     }
 
+    /**
+     * Update the basket
+     *
+     * @param $request
+     * @param $item
+     * @param $id
+     */
     public function update($request, $item, $id)
     {
         $this->items[$id]['quantity'] = 0;
@@ -66,6 +86,11 @@ class Basket
         }
     }
 
+    /**
+     * Remove an item from the basket
+     *
+     * @param $id
+     */
     public function removeItem($id)
     {
         unset($this->items[$id]);
