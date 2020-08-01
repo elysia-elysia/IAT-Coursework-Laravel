@@ -98,25 +98,25 @@ class BookController extends Controller
 //                $path = $request->file('images')->storeAs('public/images', $fileNameToStore);
 //            }
             foreach ($images as $image) {
-                $filename = pathinfo($image, PATHINFO_FILENAME);
+                $filename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
                 $extension = $image->getClientOriginalExtension();
                 //Gets the filename to store
                 $fileNameToStore = $filename . '_' . time() . '.' . $extension;
                 //$items = Item::create($request->all());
 
-                $filename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                //$filename = $image->storeAs('public/images', $fileNameToStore);
                 BookImage::create([
                     'book_id' => $book->id,
-                    'filename' => $filename
+                    'filename' => $fileNameToStore
                 ]);
 
             }
         } else {
             $fileNameToStore = 'noimage.jpg';
-            $filename = $fileNameToStore->storeAs('public/images', $fileNameToStore);
+            //$filename = $fileNameToStore->storeAs('public/images', $fileNameToStore);
             BookImage::create([
                 'book_id' => $book->id,
-                'filename' => $filename
+                'filename' => $fileNameToStore
             ]);
         }
 
@@ -228,19 +228,19 @@ class BookController extends Controller
                 $fileNameToStore = $filename . '_' . time() . '.' . $extension;
                 //$items = Item::create($request->all());
 
-                $filename = $image->storeAs('public/images', $fileNameToStore);
+                //$filename = $image->storeAs('public/images', $fileNameToStore);
                 BookImage::create([
                     'book_id' => $book->id,
-                    'filename' => $filename
+                    'filename' => $fileNameToStore
                 ]);
 
             }
         } else {
             $fileNameToStore = 'noimage.jpg';
-            $filename = $fileNameToStore->storeAs('public/images', $fileNameToStore);
+            //$filename = $fileNameToStore->storeAs('public/images', $fileNameToStore);
             BookImage::create([
                 'book_id' => $book->id,
-                'filename' => $filename
+                'filename' => $fileNameToStore
             ]);
         }
         $book->save();
