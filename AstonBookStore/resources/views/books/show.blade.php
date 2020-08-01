@@ -25,7 +25,7 @@
                                     <p class="text-center" colspan='2'>No Image Available</p>
 
                             @else
-                                    <div class="column">
+                                    <div class="column text-center">
                                 <img class="img-thumbnail rounded"
                                      style="width:200px;height:200px"
                                      src="{{ asset('storage/images/'.$image['filename'])}}">
