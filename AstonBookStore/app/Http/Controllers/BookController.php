@@ -28,16 +28,6 @@ class BookController extends Controller
         return view('books.index', compact('books'));
     }
 
-//    public function filterSort()
-//    {
-//        //Check if a filter or sort has been selected then show results
-//        $booksQuery = Book::all();
-//        $booksQuery = $booksQuery->where('userid', auth()->user()->id);
-//
-//        return view('books.index', array('books' => $booksQuery));
-//    }
-
-
     /**
      * Show the form for creating a new resource.
      *
@@ -83,7 +73,9 @@ class BookController extends Controller
         $book->category = implode(',', $book->category);
         $book->description = $request->input('description');
         $book->created_at = now();
-
+//$book->image = $fileNameToStore;
+        // save the book object
+        $book->save();
         //Handles the uploading of the image
         if ($request->hasFile('images')) {
             $images = $request->file('images');
@@ -121,9 +113,7 @@ class BookController extends Controller
         }
 
 
-        //$book->image = $fileNameToStore;
-        // save the book object
-        $book->save();
+
         // generate a redirect HTTP response with a success message
         return back()->with('success', 'The book has been created');
     }
