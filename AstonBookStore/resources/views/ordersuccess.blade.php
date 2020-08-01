@@ -16,7 +16,7 @@
         <div class="flex-center position-ref full-height">
             <div class="jumbotron align-items-center text-center">
                 <h1 class="display-4 ">Purchase Complete! </h1>
-                <p class="lead">Thank you for ordering at Aston Book Store!</p>
+                <p class="lead">Thank you for ordering at Aston Book Store! You will shortly receive an email containing your receipt.</p>
                 <hr class="my-4">
 
                 <a class="btn btn-primary btn-lg" href="{{ url('orders') }}" role="button">View Your Orders</a>
