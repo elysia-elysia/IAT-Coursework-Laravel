@@ -19,20 +19,21 @@
                         </div><br/> @endif
                     <div class="card-body">
                         <table class="table table-striped" border="1">
-                            
+                            <tr>
+                                <td colspan='2'>
                             @foreach($images as $image)
                                 @if(count($images)==0)
                                     <tr>
                                         <td class="text-center" colspan='2'>No Image Available</td>
                                     </tr>
                                 @else
-                                    <tr>
-                                        <td colspan='2'><img class="img-thumbnail rounded mx-auto d-block"
+                                    <img class="img-thumbnail rounded mx-auto d-block"
                                                              style="width:25%;height:35%"
-                                                             src="{{ asset('storage/images/'.$image['filename'])}}"></td>
-                                    </tr>
+                                                             src="{{ asset('storage/images/'.$image['filename'])}}">
                                 @endif
                             @endforeach
+                                </td>
+                                    </tr>
                             <tr>
                                 <th>Title</th>
                                 <td>{{$book->title}}</td>
