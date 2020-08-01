@@ -21,15 +21,15 @@
                         <table class="table table-striped" border="1">
 
                             @foreach($images as $image)
-                                @if(count($images)!=0)
+                                @if(count($images)==0)
+                                    <tr>
+                                        <td class="text-center" colspan='2'>No Image Available</td>
+                                    </tr>
+                                @else
                                     <tr>
                                         <td colspan='2'><img class="img-thumbnail rounded mx-auto d-block"
                                                              style="width:25%;height:35%"
                                                              src="{{ asset('storage/images/'.$image['filename'])}}"></td>
-                                    </tr>
-                                @else
-                                    <tr>
-                                        <td class="text-center" colspan='2'>No Image Available</td>
                                     </tr>
                                 @endif
                             @endforeach
