@@ -496,6 +496,7 @@ class ComposerStaticInitbfc2fe945d612de97f8b02ed923ae6c0
     public static $classMap = array (
         'App\\Basket' => __DIR__ . '/../..' . '/app/Basket.php',
         'App\\Book' => __DIR__ . '/../..' . '/app/Book.php',
+        'App\\BookImage' => __DIR__ . '/../..' . '/app/BookImage.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
@@ -517,6 +518,7 @@ class ComposerStaticInitbfc2fe945d612de97f8b02ed923ae6c0
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Notifications\\OrderSuccessNotification' => __DIR__ . '/../..' . '/app/Notifications/OrderSuccessNotification.php',
         'App\\Order' => __DIR__ . '/../..' . '/app/Order.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
