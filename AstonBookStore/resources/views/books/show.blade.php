@@ -19,7 +19,7 @@
                         </div><br/> @endif
                     <div class="card-body">
                         <table class="table table-striped" border="1">
-                            {{dd($images)}}
+                            
                             @foreach($images as $image)
                                 @if(count($images)==0)
                                     <tr>
