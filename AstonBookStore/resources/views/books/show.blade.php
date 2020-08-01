@@ -18,7 +18,7 @@
                             <p>{{ \Session::get('success') }}</p>
                         </div><br/> @endif
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row text-center">
                         @foreach($images as $image)
                             @if(count($images)==0)
 
@@ -26,7 +26,7 @@
 
                             @else
                                     <div class="column">
-                                <img class="img-thumbnail rounded mx-auto d-block"
+                                <img class="img-thumbnail rounded"
                                      style="width:200px;height:200px"
                                      src="{{ asset('storage/images/'.$image['filename'])}}">
                                     </div>
