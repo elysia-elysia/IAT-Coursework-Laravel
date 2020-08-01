@@ -8,6 +8,7 @@ use App\Notifications\OrderSuccessNotification;
 use Illuminate\Http\Request;
 use App\Order;
 use Gate;
+use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
@@ -133,6 +134,7 @@ class OrderController extends Controller
             'orderprice'=> $orderprice
         ];
         Notification::send($userEmail, new OrderSuccessNotification($details));
+        
         dd('done');
     }
 }
