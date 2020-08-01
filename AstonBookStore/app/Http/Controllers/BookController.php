@@ -28,14 +28,14 @@ class BookController extends Controller
         return view('books.index', compact('books'));
     }
 
-    public function filterSort()
-    {
-        //Check if a filter or sort has been selected then show results
-        $booksQuery = Book::all();
-        $booksQuery = $booksQuery->where('userid', auth()->user()->id);
-
-        return view('books.index', array('books' => $booksQuery));
-    }
+//    public function filterSort()
+//    {
+//        //Check if a filter or sort has been selected then show results
+//        $booksQuery = Book::all();
+//        $booksQuery = $booksQuery->where('userid', auth()->user()->id);
+//
+//        return view('books.index', array('books' => $booksQuery));
+//    }
 
 
     /**
@@ -112,12 +112,12 @@ class BookController extends Controller
 
             }
         } else {
-            $fileNameToStore = 'noimage.jpg';
-            $filename = $fileNameToStore->storeAs('public/images', $fileNameToStore);
-            BookImage::create([
-                'book_id' => $book->id,
-                'filename' => $filename
-            ]);
+//            $fileNameToStore = 'noimage.jpg';
+//            $filename = $fileNameToStore->storeAs('public/images', $fileNameToStore);
+//            BookImage::create([
+//                'book_id' => $book->id,
+//                'filename' => $filename
+//            ]);
         }
 
 
@@ -236,12 +236,12 @@ class BookController extends Controller
 
             }
         } else {
-            $fileNameToStore = 'noimage.jpg';
-            //$filename = $fileNameToStore->storeAs('public/images', $fileNameToStore);
-            BookImage::create([
-                'book_id' => $book->id,
-                'filename' => $fileNameToStore
-            ]);
+//            $fileNameToStore = 'noimage.jpg';
+//            //$filename = $fileNameToStore->storeAs('public/images', $fileNameToStore);
+//            BookImage::create([
+//                'book_id' => $book->id,
+//                'filename' => $fileNameToStore
+//            ]);
         }
         $book->save();
         return redirect('books')->with('success', 'The book has been updated');

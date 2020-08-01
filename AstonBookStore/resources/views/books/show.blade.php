@@ -21,7 +21,7 @@
                         <table class="table table-striped" border="1">
 
                             @foreach($images as $image)
-                                @if($image['filename'] != "noimage.jpg")
+                                @if(count($images)!=0)
                                     <tr>
                                         <td colspan='2'><img class="img-thumbnail rounded mx-auto d-block"
                                                              style="width:25%;height:35%"
