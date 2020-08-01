@@ -98,7 +98,7 @@ class BookController extends Controller
 //                $path = $request->file('images')->storeAs('public/images', $fileNameToStore);
 //            }
             foreach ($images as $image) {
-                $filename = $image->getClientOriginalName();
+                $filename = pathinfo($image, PATHINFO_FILENAME);
                 $extension = $image->getClientOriginalExtension();
                 //Gets the filename to store
                 $fileNameToStore = $filename . '_' . time() . '.' . $extension;
@@ -222,7 +222,7 @@ class BookController extends Controller
 //                $path = $request->file('images')->storeAs('public/images', $fileNameToStore);
 //            }
             foreach ($images as $image) {
-                $filename = $image->getClientOriginalName();
+                $filename = pathinfo($image, PATHINFO_FILENAME);
                 $extension = $image->getClientOriginalExtension();
                 //Gets the filename to store
                 $fileNameToStore = $filename . '_' . time() . '.' . $extension;
