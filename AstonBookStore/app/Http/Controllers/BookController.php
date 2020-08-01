@@ -104,7 +104,7 @@ class BookController extends Controller
                 $fileNameToStore = $filename . '_' . time() . '.' . $extension;
                 //$items = Item::create($request->all());
 
-                //$filename = $image->storeAs('public/images', $fileNameToStore);
+                $filename = $image->storeAs('public/images', $fileNameToStore);
                 BookImage::create([
                     'book_id' => $book->id,
                     'filename' => $fileNameToStore
@@ -232,7 +232,7 @@ class BookController extends Controller
                 $filename = $image->storeAs('public/images', $fileNameToStore);
                 BookImage::create([
                     'book_id' => $book->id,
-                    'filename' => $filename
+                    'filename' => $fileNameToStore
                 ]);
 
             }
