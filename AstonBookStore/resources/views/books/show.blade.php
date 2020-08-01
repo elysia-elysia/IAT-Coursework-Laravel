@@ -18,23 +18,24 @@
                             <p>{{ \Session::get('success') }}</p>
                         </div><br/> @endif
                     <div class="card-body">
-                        <div class="row text-center">
-                        @foreach($images as $image)
-                            @if(count($images)==0)
+                        <div class="text-center">
+                            <div class="row">
+                                @foreach($images as $image)
+                                    @if(count($images)==0)
 
-                                    <p class="text-center" colspan='2'>No Image Available</p>
+                                        <p class="text-center" colspan='2'>No Image Available</p>
 
-                            @else
-                                    <div class="column text-center">
-                                <img class="img-thumbnail rounded"
-                                     style="width:200px;height:200px"
-                                     src="{{ asset('storage/images/'.$image['filename'])}}">
-                                    </div>
-                            @endif
-                        @endforeach
+                                    @else
+                                        <div class="column">
+                                            <img class="img-thumbnail rounded"
+                                                 style="width:200px;height:200px"
+                                                 src="{{ asset('storage/images/'.$image['filename'])}}">
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
                         <table class="table table-striped" border="1">
-
 
 
                             <tr>
