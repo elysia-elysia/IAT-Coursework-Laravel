@@ -16,7 +16,7 @@
         <div class="flex-center position-ref full-height">
             <div class="jumbotron align-items-center text-center">
                 <h1 class="display-4 ">Welcome to Aston Book Store! </h1>
-                @if(Auth::check())
+                @if(!Auth::check())
                 <p class="lead">Browse our books. Register or Login to buy them!</p>
                 @endif
                 <hr class="my-4">
