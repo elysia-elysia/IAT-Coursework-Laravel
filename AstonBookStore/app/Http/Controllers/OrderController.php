@@ -129,12 +129,12 @@ class OrderController extends Controller
     }
 
     public function sendOrderReceiptNotification($ordernum, $orderprice){
-        $userEmail = auth()->user()->email;
+        $user = auth()->user();
         $details = [
             'ordernum' => $ordernum,
             'orderprice'=> $orderprice
         ];
-        $userEmail->notify(new OrderSuccessNotification($details));
+        $user->notify(new OrderSuccessNotification($details));
         //Notification::send($userEmail, new OrderSuccessNotification($details));
 
         dd('done');
