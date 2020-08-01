@@ -140,7 +140,7 @@ class BookController extends Controller
         $book = Book::find($id);
         $imagesQuery = BookImage::all();
         $imagesQuery = $imagesQuery->where('book_id', $id);
-        dd(count($imagesQuery));
+        //dd(count($imagesQuery));
         return view('books.show', array('images' => $imagesQuery));
     }
 
