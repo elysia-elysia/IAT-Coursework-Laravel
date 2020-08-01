@@ -113,8 +113,9 @@
                             <div class="col-md-8 form-group">
                                 <label>Image</label>
                                 <input type="file"
-                                       name="image"
-                                       placeholder="Image file"
+                                       name="images[]"
+                                       multiple
+                                       placeholder="Image files"
                                        class="form-control"/>
                             </div>
                             <div class="col-md-6 col-md-offset-4">

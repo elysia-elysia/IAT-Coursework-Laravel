@@ -108,7 +108,8 @@ $book['id']) }} " enctype="multipart/form-data" >
                             <div class="col-md-8 form-group">
                                 <label>Image</label>
                                 <input type="file"
-                                       name="image"
+                                       name="images[]"
+                                       multiple
                                        class="form-control"/>
                             </div>
 

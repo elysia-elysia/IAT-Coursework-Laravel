@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BookImage;
 use Illuminate\Http\Request;
 use App\Book;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -68,21 +69,7 @@ class BookController extends Controller
             'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:500',
             'description' => 'max:256'
         ]);
-        //Handles the uploading of the image
-        if ($request->hasFile('image')) {
-            //Gets the filename with the extension
-            $fileNameWithExt = $request->file('image')->getClientOriginalName();
-            //just gets the filename
-            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-            //Just gets the extension
-            $extension = $request->file('image')->getClientOriginalExtension();
-            //Gets the filename to store
-            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-            //Uploads the image
-            $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
-        } else {
-            $fileNameToStore = 'noimage.jpg';
-        }
+
         // create a book object and set its values from the input
         $book = new book;
         $book->title = $request->input('title');
@@ -96,7 +83,45 @@ class BookController extends Controller
         $book->category = implode(',', $book->category);
         $book->description = $request->input('description');
         $book->created_at = now();
-        $book->image = $fileNameToStore;
+
+        //Handles the uploading of the image
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+            //foreach ($images as $image){
+//                //just gets the filename
+//                $filename = pathinfo($image, PATHINFO_FILENAME);
+//                //Just gets the extension
+//                $extension = $request->file('images')->getClientOriginalExtension();
+//                //Gets the filename to store
+//                $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+//                //Uploads the image
+//                $path = $request->file('images')->storeAs('public/images', $fileNameToStore);
+//            }
+            foreach ($images as $image) {
+                $filename = $image->getClientOriginalName();
+                $extension = $image->getClientOriginalExtension();
+                //Gets the filename to store
+                $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+                //$items = Item::create($request->all());
+                foreach ($request->images as $i) {
+                    $filename = $i->storeAs('public/images', $fileNameToStore);
+                    BookImage::create([
+                        'book_id' => $book->id,
+                        'filename' => $filename
+                    ]);
+                }
+            }
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+            $filename = $fileNameToStore->storeAs('public/images', $fileNameToStore);
+            BookImage::create([
+                'book_id' => $book->id,
+                'filename' => $filename
+            ]);
+        }
+
+
+        //$book->image = $fileNameToStore;
         // save the book object
         $book->save();
         // generate a redirect HTTP response with a success message
@@ -109,10 +134,13 @@ class BookController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public
+    function show($id)
     {
         $book = Book::find($id);
-        return view('books.show', compact('book'));
+        $imagesQuery = BookImage::all();
+        $imagesQuery = $imagesQuery->where('book_id', $id);
+        return view('books.show', array('images' => $imagesQuery), compact('book'));
     }
 
     /**
@@ -121,7 +149,8 @@ class BookController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public
+    function edit($id)
     {
         $book = Book::find($id);
         return view('books.edit', compact('book'));
@@ -134,7 +163,8 @@ class BookController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public
+    function update(Request $request, $id)
     {
         $book = Book::find($id);
         // form validation
@@ -162,22 +192,57 @@ class BookController extends Controller
         $book->description = $request->input('description');
         $book->updated_at = now();
 
+//        //Handles the uploading of the image
+//        if ($request->hasFile('image')) {
+//            //Gets the filename with the extension
+//            $fileNameWithExt = $request->file('image')->getClientOriginalName();
+//            //just gets the filename
+//            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+//            //Just gets the extension
+//            $extension = $request->file('image')->getClientOriginalExtension();
+//            //Gets the filename to store
+//            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+//            //Uploads the image
+//            $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
+//        } else {
+//            $fileNameToStore = 'noimage.jpg';
+//        }
+//        $book->image = $fileNameToStore;
         //Handles the uploading of the image
-        if ($request->hasFile('image')) {
-            //Gets the filename with the extension
-            $fileNameWithExt = $request->file('image')->getClientOriginalName();
-            //just gets the filename
-            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-            //Just gets the extension
-            $extension = $request->file('image')->getClientOriginalExtension();
-            //Gets the filename to store
-            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-            //Uploads the image
-            $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+            //foreach ($images as $image){
+//                //just gets the filename
+//                $filename = pathinfo($image, PATHINFO_FILENAME);
+//                //Just gets the extension
+//                $extension = $request->file('images')->getClientOriginalExtension();
+//                //Gets the filename to store
+//                $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+//                //Uploads the image
+//                $path = $request->file('images')->storeAs('public/images', $fileNameToStore);
+//            }
+            foreach ($images as $image) {
+                $filename = $image->getClientOriginalName();
+                $extension = $image->getClientOriginalExtension();
+                //Gets the filename to store
+                $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+                //$items = Item::create($request->all());
+                foreach ($request->images as $i) {
+                    $filename = $i->storeAs('public/images', $fileNameToStore);
+                    BookImage::create([
+                        'book_id' => $book->id,
+                        'filename' => $filename
+                    ]);
+                }
+            }
         } else {
             $fileNameToStore = 'noimage.jpg';
+            $filename = $fileNameToStore->storeAs('public/images', $fileNameToStore);
+            BookImage::create([
+                'book_id' => $book->id,
+                'filename' => $filename
+            ]);
         }
-        $book->image = $fileNameToStore;
         $book->save();
         return redirect('books')->with('success', 'The book has been updated');
     }
@@ -189,7 +254,8 @@ class BookController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public
+    function destroy($id)
     {
         $book = Book::find($id);
         $book->delete();
@@ -197,13 +263,15 @@ class BookController extends Controller
     }
 
     //Stock Room Functions
-    public function stockroom()
+    public
+    function stockroom()
     {
         $books = Book::all()->toArray();
         return view('/admin/stockroom', compact('books'));
     }
 
-    public function updateStock(Request $request, $id)
+    public
+    function updateStock(Request $request, $id)
     {
         $book = Book::find($id);
         // form validation
