@@ -11,6 +11,7 @@ use Gate;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Session;
 
+
 class OrderController extends Controller
 {
     public function displayOrders()
@@ -133,8 +134,9 @@ class OrderController extends Controller
             'ordernum' => $ordernum,
             'orderprice'=> $orderprice
         ];
-        Notification::send($userEmail, new OrderSuccessNotification($details));
-        
+        $userEmail->notify(new OrderSuccessNotification($details));
+        //Notification::send($userEmail, new OrderSuccessNotification($details));
+
         dd('done');
     }
 }
