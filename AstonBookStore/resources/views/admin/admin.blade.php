@@ -11,17 +11,29 @@
                             <ul> @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li> @endforeach
                             </ul>
-                        </div><br /> @endif
+                        </div><br/> @endif
                 <!-- display the success status -->
-                    @if (\Session::has('success'))
+                    @if (Session::has('success'))
                         <div class="alert alert-success">
-                            <p>{{ \Session::get('success') }}</p>
-                        </div><br /> @endif
+                            <p>{{ Session::get('success') }}</p>
+                        </div><br/> @endif
                     <div class="card-body">
-                        <a href="{{ url('books/create') }}" class="btn btn-primary btn-lg active btn-block" role="button" aria-pressed="true">Add a Book</a>
-                        <a href="{{ url('books') }}" class="btn btn-primary btn-lg active btn-block" role="button" aria-pressed="true">View All Books</a>
-                        <a href="{{ url('admin/stockroom') }}" class="btn btn-primary btn-lg active btn-block" role="button" aria-pressed="true">Stock Room</a>
-                        <a href="{{ url('orders') }}" class="btn btn-primary btn-lg active btn-block" role="button" aria-pressed="true">View Orders</a>
+                        <a href="{{ url('books/create') }}"
+                           class="btn btn-primary btn-lg active btn-block"
+                           role="button"
+                           aria-pressed="true">Add a Book</a>
+                        <a href="{{ url('books') }}"
+                           class="btn btn-primary btn-lg active btn-block"
+                           role="button"
+                           aria-pressed="true">View All Books</a>
+                        <a href="{{ url('admin/stockroom') }}"
+                           class="btn btn-primary btn-lg active btn-block"
+                           role="button"
+                           aria-pressed="true">Stock Room</a>
+                        <a href="{{ url('orders') }}"
+                           class="btn btn-primary btn-lg active btn-block"
+                           role="button"
+                           aria-pressed="true">View Orders</a>
                     </div>
                 </div>
             </div>

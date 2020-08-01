@@ -9,17 +9,6 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
-//    /**
-//     * Route notifications for the mail channel.
-//     *
-//     * @param  \Illuminate\Notifications\Notification  $notification
-//     * @return array|string
-//     */
-//    public function routeNotificationForMail($notification)
-//    {
-//        // Return email address only...
-//        return $this->email;
-//    }
 
     /**
      * The attributes that are mass assignable.
@@ -48,7 +37,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function orders(){
+    public function orders()
+    {
         return $this->hasMany('App\Order');
     }
 }

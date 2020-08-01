@@ -24,19 +24,20 @@ class OrderController extends Controller
     }
 
     //Basket Functions
-    public function getBasket(){
-        if(!Session::has('basket')){
-            return  view('/basket');
+    public function getBasket()
+    {
+        if (!Session::has('basket')) {
+            return view('/basket');
         }
         $oldBasket = Session::get('basket');
         $basket = new Basket($oldBasket);
-        return view('/basket', ['books' => $basket-> items, 'totalPrice'=> $basket->totalPrice,'totalQuantity'=> $basket->totalQuantity]);
+        return view('/basket', ['books' => $basket->items, 'totalPrice' => $basket->totalPrice, 'totalQuantity' => $basket->totalQuantity]);
     }
 
     public function addToBasket(Request $request, $id)
     {
         $book = Book::find($id);
-        $oldBasket = Session::has('basket') ? Session::get('basket'): null;
+        $oldBasket = Session::has('basket') ? Session::get('basket') : null;
         $basket = new Basket($oldBasket);
         $basket->add($book, $book->id);
 
@@ -44,7 +45,8 @@ class OrderController extends Controller
         return redirect()->route('books.index')->with('success', 'Book added to your basket successfully!');
     }
 
-    public function removeFromBasket($id) {
+    public function removeFromBasket($id)
+    {
         $oldBasket = Session::has('basket') ? Session::get('basket') : null;
         $basket = new basket($oldBasket);
         $basket->removeItem($id);
@@ -58,11 +60,12 @@ class OrderController extends Controller
         return back()->with('success', 'Book removed from your basket successfully!');
     }
 
-    public function  updateBasketQuantity(Request $request, $id){
+    public function updateBasketQuantity(Request $request, $id)
+    {
         $book = Book::find($id);
-        $oldBasket = Session::has('basket') ? Session::get('basket'): null;
+        $oldBasket = Session::has('basket') ? Session::get('basket') : null;
         $basket = new Basket($oldBasket);
-        $basket->update($request,$book, $book->id);
+        $basket->update($request, $book, $book->id);
 
         $request->session()->put('basket', $basket);
         return back()->with('success', 'Book quantity changed successfully!');
@@ -71,37 +74,33 @@ class OrderController extends Controller
     //Checkout Functions
     public function getCheckout()
     {
-        if(!Session::has('basket')){
-            return  view('/basket');
+        if (!Session::has('basket')) {
+            return view('/basket');
         }
 
         $oldBasket = Session::get('basket');
         $basket = new Basket($oldBasket);
         $errorArray = [];
-        $errorStr = "";
-        //dd($basket->items );
-//        print_r($basket);
-//        die;
-        foreach ($basket->items as $item){
+
+        foreach ($basket->items as $item) {
             $book = Book::find($item['item']['id']);
 
-            if ($item['quantity'] > $book->stock){
-                $errorArray[] = " You have added " .$item['quantity']. " " .$book->title. "to your basket, but there are only ". $book->stock." in stock.";
+            if ($item['quantity'] > $book->stock) {
+                $errorArray[] = " You have added " . $item['quantity'] . " " . $book->title . "to your basket, but there are only " . $book->stock . " in stock.";
             }
         }
-        if (count($errorArray)==0)
-        {
+        if (count($errorArray) == 0) {
             $total = $basket->totalPrice;
-            return view('checkout', ['totalPrice'=> $total]);
-        }
-        else{
+            return view('checkout', ['totalPrice' => $total]);
+        } else {
             return back()->withErrors([$errorArray, " Please remove some items from your basket. "]);
         }
     }
 
-    public function postCheckout(Request $request){
-        if(!Session::has('basket')){
-            return  view('/basket');
+    public function postCheckout(Request $request)
+    {
+        if (!Session::has('basket')) {
+            return view('/basket');
         }
         $oldBasket = Session::get('basket');
         $basket = new Basket($oldBasket);
@@ -119,24 +118,20 @@ class OrderController extends Controller
             $book = Book::find($item['item']['id']);
             $book->stock = $book->stock - $item['quantity'];
             $book->updated_at = now();
-//            print_r($book);
-//                die;
             $book->save();
         }
-        $this->sendOrderReceiptNotification($order->id,$order->orderprice);
+        $this->sendOrderReceiptNotification($order->id, $order->orderprice);
         Session::forget('basket');
         return redirect('/order/success');
     }
 
-    public function sendOrderReceiptNotification($ordernum, $orderprice){
+    public function sendOrderReceiptNotification($ordernum, $orderprice)
+    {
         $user = auth()->user();
         $details = [
             'ordernum' => $ordernum,
-            'orderprice'=> $orderprice
+            'orderprice' => $orderprice
         ];
         $user->notify(new OrderSuccessNotification($details));
-        //Notification::send($userEmail, new OrderSuccessNotification($details));
-
-       // dd('done');
     }
 }

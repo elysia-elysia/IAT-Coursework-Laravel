@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('books','BookController');
+Route::resource('books', 'BookController');
 Route::post('books', 'BookController@filterSort');
 Auth::routes();
 
@@ -24,7 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Users cannot get to these pages until they are logged in
 //It will redirect non-auth users to the login page if they try to access these pages
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['auth']], function () {
     Route::view('/admin', 'admin/admin');
     Route::get('/admin/stockroom', 'BookController@stockroom');
     Route::get('orders',
