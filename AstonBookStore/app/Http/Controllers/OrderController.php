@@ -137,6 +137,6 @@ class OrderController extends Controller
         $user->notify(new OrderSuccessNotification($details));
         //Notification::send($userEmail, new OrderSuccessNotification($details));
 
-        dd('done');
+       // dd('done');
     }
 }
