@@ -103,13 +103,13 @@ class BookController extends Controller
                 //Gets the filename to store
                 $fileNameToStore = $filename . '_' . time() . '.' . $extension;
                 //$items = Item::create($request->all());
-                foreach ($request->images as $i) {
-                    $filename = $i->storeAs('public/images', $fileNameToStore);
+
+                    $filename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
                     BookImage::create([
                         'book_id' => $book->id,
                         'filename' => $filename
                     ]);
-                }
+                
             }
         } else {
             $fileNameToStore = 'noimage.jpg';
@@ -222,18 +222,18 @@ class BookController extends Controller
 //                $path = $request->file('images')->storeAs('public/images', $fileNameToStore);
 //            }
             foreach ($images as $image) {
-                $filename = pathinfo($image, PATHINFO_FILENAME);
+                $filename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
                 $extension = $image->getClientOriginalExtension();
                 //Gets the filename to store
                 $fileNameToStore = $filename . '_' . time() . '.' . $extension;
                 //$items = Item::create($request->all());
-                foreach ($request->images as $i) {
+
                     $filename = $i->storeAs('public/images', $fileNameToStore);
                     BookImage::create([
                         'book_id' => $book->id,
                         'filename' => $filename
                     ]);
-                }
+
             }
         } else {
             $fileNameToStore = 'noimage.jpg';
