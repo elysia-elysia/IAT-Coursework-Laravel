@@ -73,22 +73,12 @@ class BookController extends Controller
         $book->category = implode(',', $book->category);
         $book->description = $request->input('description');
         $book->created_at = now();
-//$book->image = $fileNameToStore;
         // save the book object
         $book->save();
+
         //Handles the uploading of the image
         if ($request->hasFile('images')) {
             $images = $request->file('images');
-            //foreach ($images as $image){
-//                //just gets the filename
-//                $filename = pathinfo($image, PATHINFO_FILENAME);
-//                //Just gets the extension
-//                $extension = $request->file('images')->getClientOriginalExtension();
-//                //Gets the filename to store
-//                $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-//                //Uploads the image
-//                $path = $request->file('images')->storeAs('public/images', $fileNameToStore);
-//            }
             foreach ($images as $image) {
                 $filename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
                 $extension = $image->getClientOriginalExtension();
@@ -104,16 +94,8 @@ class BookController extends Controller
 
             }
         } else {
-//            $fileNameToStore = 'noimage.jpg';
-//            $filename = $fileNameToStore->storeAs('public/images', $fileNameToStore);
-//            BookImage::create([
-//                'book_id' => $book->id,
-//                'filename' => $filename
-//            ]);
+//
         }
-
-
-
         // generate a redirect HTTP response with a success message
         return back()->with('success', 'The book has been created');
     }
@@ -183,35 +165,9 @@ class BookController extends Controller
         $book->description = $request->input('description');
         $book->updated_at = now();
 
-//        //Handles the uploading of the image
-//        if ($request->hasFile('image')) {
-//            //Gets the filename with the extension
-//            $fileNameWithExt = $request->file('image')->getClientOriginalName();
-//            //just gets the filename
-//            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-//            //Just gets the extension
-//            $extension = $request->file('image')->getClientOriginalExtension();
-//            //Gets the filename to store
-//            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-//            //Uploads the image
-//            $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
-//        } else {
-//            $fileNameToStore = 'noimage.jpg';
-//        }
-//        $book->image = $fileNameToStore;
         //Handles the uploading of the image
         if ($request->hasFile('images')) {
             $images = $request->file('images');
-            //foreach ($images as $image){
-//                //just gets the filename
-//                $filename = pathinfo($image, PATHINFO_FILENAME);
-//                //Just gets the extension
-//                $extension = $request->file('images')->getClientOriginalExtension();
-//                //Gets the filename to store
-//                $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-//                //Uploads the image
-//                $path = $request->file('images')->storeAs('public/images', $fileNameToStore);
-//            }
             foreach ($images as $image) {
                 $filename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
                 $extension = $image->getClientOriginalExtension();
@@ -227,12 +183,7 @@ class BookController extends Controller
 
             }
         } else {
-//            $fileNameToStore = 'noimage.jpg';
-//            //$filename = $fileNameToStore->storeAs('public/images', $fileNameToStore);
-//            BookImage::create([
-//                'book_id' => $book->id,
-//                'filename' => $fileNameToStore
-//            ]);
+
         }
         $book->save();
         return redirect('books')->with('success', 'The book has been updated');

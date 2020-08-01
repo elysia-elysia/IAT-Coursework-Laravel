@@ -33,47 +33,47 @@
                                              src="{{ asset('storage/images/'.$image['filename'])}}">
                                     </div>
 
-                                @endif
-                            @endforeach
-                                </td>
+                                    @endif
+                                    @endforeach
+                                    </td>
                                     </tr>
-                            <tr>
-                                <th>Title</th>
-                                <td>{{$book->title}}</td>
-                            </tr>
-                            <tr>
-                                <th><b>ISBN Number</th>
-                                <td> {{$book['ISBN_no']}}</td>
-                            </tr>
+                                    <tr>
+                                        <th>Title</th>
+                                        <td>{{$book->title}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><b>ISBN Number</th>
+                                        <td> {{$book['ISBN_no']}}</td>
+                                    </tr>
 
-                            <tr>
-                                <th>Price</th>
-                                <td>£{{$book->price}}</td>
-                            </tr>
-                            <tr>
-                                <th>Category</th>
-                                <td>{{$book->category}}</td>
-                            </tr>
-                            <tr>
-                                <th>Author First Name</th>
-                                <td>{{$book->authorfirstname}}</td>
-                            </tr>
-                            <tr>
-                                <th>Author Last Name</th>
-                                <td>{{$book->authorlastname}}</td>
-                            </tr>
-                            <tr>
-                                <th>Publishing Year</th>
-                                <td>{{$book->publishyear}}</td>
-                            </tr>
-                            <tr>
-                                <th>Description</th>
-                                <td style="max-width:150px;">{{$book->description}}</td>
-                            </tr>
-                            <tr>
-                                <th>No. in Stock</th>
-                                <td>{{$book->stock}}</td>
-                            </tr>
+                                    <tr>
+                                        <th>Price</th>
+                                        <td>£{{$book->price}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Category</th>
+                                        <td>{{$book->category}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Author First Name</th>
+                                        <td>{{$book->authorfirstname}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Author Last Name</th>
+                                        <td>{{$book->authorlastname}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Publishing Year</th>
+                                        <td>{{$book->publishyear}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Description</th>
+                                        <td style="max-width:150px;">{{$book->description}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>No. in Stock</th>
+                                        <td>{{$book->stock}}</td>
+                                    </tr>
                         </table>
                         <table>
                             <tr>
