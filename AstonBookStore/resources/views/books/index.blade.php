@@ -5,24 +5,25 @@
 @endsection
 
 @section('content')
-{{--    <div class="container">--}}
-        <div class="row justify-content-center">
-            <div class="col-md-12 ">
-                <div class="card">
-                    <div class="card-header">All Books</div>
-                    <!-- display the errors -->
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul> @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li> @endforeach
-                            </ul>
-                        </div><br/> @endif
-                <!-- display the success status -->
-                    @if (\Session::has('success'))
-                        <div class="alert alert-success">
-                            <p>{{ \Session::get('success') }}</p>
-                        </div><br/> @endif
-                    <div class="card-body">
+        <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12 ">
+            <div class="card">
+                <div class="card-header">All Books</div>
+                <!-- display the errors -->
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul> @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li> @endforeach
+                        </ul>
+                    </div><br/> @endif
+            <!-- display the success status -->
+                @if (\Session::has('success'))
+                    <div class="alert alert-success">
+                        <p>{{ \Session::get('success') }}</p>
+                    </div><br/> @endif
+                <div class="card-body">
+                    <div class="table-responsive">
                         <table class="table table-striped responsive " id="books">
                             <thead>
                             <tr>
@@ -96,7 +97,8 @@
                 </div>
             </div>
         </div>
-{{--    </div>--}}
+    </div>
+        </div>
 @endsection
 @section('scripts')
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
