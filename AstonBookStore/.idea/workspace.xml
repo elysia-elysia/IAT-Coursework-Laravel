@@ -21,12 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7f4baa15-d634-4539-8b7d-ad0dfaf3ed2c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Basket.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Basket.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/BookImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/BookImage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BookController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/books/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/books/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +182,8 @@
       <workItem from="1594981597491" duration="16456000" />
       <workItem from="1595080894941" duration="6871000" />
       <workItem from="1595148003861" duration="9905000" />
-      <workItem from="1596180819350" duration="52775000" />
+      <workItem from="1596180819350" duration="52875000" />
+      <workItem from="1596441970276" duration="44000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1592324933526</created>
