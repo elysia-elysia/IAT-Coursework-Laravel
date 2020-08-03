@@ -23,7 +23,7 @@
                             <p>{{ \Session::get('success') }}</p>
                         </div><br/> @endif
                     <div class="card-body">
-                        <table class="table table-striped" id="books">
+                        <table class="table table-striped responsive " id="books">
                             <thead>
                             <tr>
                                 <th>ISBN Number</th>
@@ -117,7 +117,10 @@
                     }
                 });
             });
-            $('#books').dataTable();
+            $('#books').dataTable({
+                responsive: true
+            });
+
         });
     </script>
 @endsection
